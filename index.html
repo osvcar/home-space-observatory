@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Space Observatory</title>
+  <meta name="description" content="Home Space Observatory — autonomous observation, astrophotography, mission archive and live observatory development." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="grid"></div>
+
+  <header class="site-header">
+    <div class="brand-wrap">
+      <div class="brand-kicker">Development Phase</div>
+      <div class="brand">HOME SPACE OBSERVATORY</div>
+    </div>
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#status">Status</a>
+      <a href="#missions">Mission Archive</a>
+      <a href="#nodes">Nodes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero panel">
+      <div class="hero-copy">
+        <div class="eyebrow">Autonomous Observation · Astrophotography · Mission Development</div>
+        <h1>A home-built observatory project with mission logic, live telemetry and long-term growth.</h1>
+        <p>
+          Home Space Observatory is a developing observational engineering platform focused on astrophotography,
+          progressive system validation, live observatory infrastructure and mission-based documentation.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#missions">Open Mission Archive</a>
+          <a class="btn btn-secondary" href="#status">Current Status</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <div class="status-card accent">
+          <div class="status-label">Mission Time</div>
+          <div class="status-value" id="uptime">T+000d 00h 00m 00s</div>
+          <div class="status-sub">Mission elapsed time</div>
+        </div>
+        <div class="status-card">
+          <div class="status-label">Local Time</div>
+          <div class="status-value" id="localTime">--:--:--</div>
+          <div class="status-sub" id="localDate">----------</div>
+        </div>
+        <div class="status-card">
+          <div class="status-label">UTC</div>
+          <div class="status-value" id="utcTime">--:--:--</div>
+          <div class="status-sub">Coordinated Universal Time</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="panel split">
+      <div>
+        <div class="section-tag">About the Observatory</div>
+        <h2>Not a blog. A mission archive.</h2>
+        <p>
+          This website is structured as a technical observatory platform rather than a personal journal.
+          Each activity is recorded as a mission, with progressive hardware integration, image acquisition,
+          system testing and future live observation nodes.
+        </p>
+        
+        <div class="operator-card">
+          <img src="assets/img/avatar.png" alt="Marysia avatar" class="operator-avatar">
+          <div>
+            <div class="operator-label">Mission Operator:</div>
+            <div class="operator-name">Marysia C<sup>2</div>
+          </div>
+        </div>
+
+        
+      </div>
+      <div class="callout">
+        <div class="callout-title">Design principles</div>
+        <ul>
+          <li>Mission-based documentation</li>
+          <li>Institutional visual language</li>
+          <li>Expandable live observatory architecture</li>
+          <li>Future field mission support</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="status" class="panel">
+      <div class="section-tag">Current Status</div>
+      <h2>Platform overview</h2>
+      <div class="status-grid">
+        <article class="metric-card">
+          <div class="metric-title">Website</div>
+          <div class="metric-value online">ONLINE</div>
+          <p>Public-facing observatory website is active.</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-title">Mission Archive</div>
+          <div class="metric-value online">ACTIVE</div>
+          <p>Mission 001 is registered and ready for real content.</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-title">Live Observatory</div>
+          <div class="metric-value pending">IN DEVELOPMENT</div>
+          <p>Raspberry Pi node, optics and telemetry integration planned.</p>
+        </article>
+        <article class="metric-card">
+          <div class="metric-title">Polar Station</div>
+          <div class="metric-value pending">PLANNED</div>
+          <p>Permanent sky-facing outdoor node under concept development.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="missions" class="panel">
+      <div class="section-tag">Mission Archive</div>
+      <div class="section-head">
+        <h2>Mission log</h2>
+        <span class="chip">Expandable structure</span>
+      </div>
+      <div class="mission-grid">
+        <article class="mission-card featured">
+          <div class="mission-number">Mission 001</div>
+          <h3>First Light: Jupiter</h3>
+          <p>
+            First successful planetary capture during the observatory’s pre-tracking validation phase.
+          </p>
+          <div class="mission-meta">
+            <span>Phase: Pre-tracking validation</span>
+            <span>Status: Completed</span>
+          </div>
+          <a class="btn btn-secondary" href="#">Mission page coming next</a>
+        </article>
+
+        <!-- versão antiga 
+        <article class="mission-card placeholder">
+          <div class="mission-number">Mission 002</div>
+          <h3>Tracking Integration Tests</h3>
+          <p>Reserved for OpenAstroTracker validation and comparative acquisition results.</p>
+          <div class="mission-meta">
+            <span>Phase: Integration</span>
+            <span>Status: Pending</span>
+          </div>
+          <div class="mission-credit">
+            Based on
+            <a href="https://github.com/OpenAstroTech/OpenAstroTracker" target="_blank" rel="noopener noreferrer">
+              OpenAstroTracker
+            </a>
+          </div>
+        </article>
+        -->
+
+        <article class="mission-card placeholder">
+          <div class="mission-number">Mission 002</div>
+
+          <h3>Tracking Integration Tests</h3>
+
+          <p>
+            Reserved for tracking validation and comparative acquisition tests using
+            OpenAstroTracker-based systems.
+          </p>
+
+          <div class="mission-meta">
+            <span>Phase: Integration</span>
+            <span>Status: Pending</span>
+          </div>
+
+          <div class="mission-credit">
+            System base:
+            <a href="https://github.com/OpenAstroTech/OpenAstroTracker" target="_blank" rel="noopener noreferrer">
+              OpenAstroTracker
+            </a>
+          </div>
+        </article>
+
+        <article class="mission-card placeholder">
+          <div class="mission-number">Mission 003</div>
+          <h3>Polar Observation Node</h3>
+          <p>Reserved for permanent outdoor observation, UTC telemetry and protected location mode.</p>
+          <div class="mission-meta">
+            <span>Phase: Planned</span>
+            <span>Status: Pending</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="nodes" class="panel split">
+      <div>
+        <div class="section-tag">Development Nodes</div>
+        <h2>Infrastructure roadmap</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <strong>Node 01 — Development Raspberry Pi</strong>
+              <p>Bench test platform for camera, UTC sync, basic telemetry and web integration.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <strong>Node 02 — Polar Observation Station</strong>
+              <p>Outdoor dome-based permanent node with thermal control and protected location handling.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <div>
+              <strong>Node 03 — Signal Monitoring Layer</strong>
+              <p>Future RTL-SDR based RF monitoring and spectrum visualisation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="callout glow">
+        <div class="callout-title">Visitor Counter</div>
+        <div class="big-counter" id="visitorCount">001</div>
+        <p>
+          External connections (dev mode).
+        </p>
+      </div>
+    </section>
+  </main>
+
+ 
+ 
+  <footer class="site-footer">
+  <div>Home Space Observatory · Development Phase</div>
+
+  <div>Built for mission growth, not for blogging.</div>
+
+  <div class="credit">
+    Background image:
+    <a href="https://images.nasa.gov/details/GSFC_20171208_Archive_e000842" target="_blank" rel="noopener noreferrer">
+      NASA / ESA / Hubble
+    </a>
+  </div>
+</footer>
+
+
+
+  <script>
+    window.HSO_CONFIG = {
+      launchDate: '2026-03-08T00:00:00Z'
+    };
+  </script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
