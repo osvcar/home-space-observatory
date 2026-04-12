@@ -25,10 +25,11 @@ body {
 
 /* Main page wrapper */
 .mission-page {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 48px 0 32px;
 }
+
 
 /* Hero block */
 .mission-hero {
