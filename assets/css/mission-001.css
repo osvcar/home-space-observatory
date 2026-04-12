@@ -1,0 +1,210 @@
+/* =========================================================
+   Mission 001 page styles
+   ---------------------------------------------------------
+   This file is intentionally self-contained, so it is easy
+   to read, modify and merge into your main stylesheet later.
+   ========================================================= */
+
+/* Basic reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #eaf2ff;
+  background:
+    radial-gradient(circle at top, rgba(31, 61, 122, 0.25), transparent 35%),
+    linear-gradient(180deg, #071120 0%, #050b14 100%);
+}
+
+/* Main page wrapper */
+.mission-page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 32px;
+}
+
+/* Hero block */
+.mission-hero {
+  margin-bottom: 40px;
+  padding: 28px;
+  border: 1px solid rgba(120, 160, 255, 0.18);
+  border-radius: 24px;
+  background: rgba(7, 18, 38, 0.72);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+.mission-kicker {
+  margin: 0 0 10px;
+  color: #8fa9d8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.mission-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+}
+
+.mission-summary {
+  max-width: 72ch;
+  margin: 0;
+  color: #c5d4ef;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* Small metadata pills */
+.mission-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.meta-pill {
+  display: inline-flex;
+  gap: 8px;
+  padding: 10px 14px;
+  border: 1px solid rgba(132, 164, 233, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.95rem;
+}
+
+.meta-pill .label {
+  color: #89a5d9;
+}
+
+.meta-pill .value {
+  color: #f3f7ff;
+  font-weight: 600;
+}
+
+/* Gallery */
+.mission-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.image-card {
+  padding: 16px;
+  border: 1px solid rgba(120, 160, 255, 0.14);
+  border-radius: 20px;
+  background: rgba(8, 18, 36, 0.76);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
+.image-card h2 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+}
+
+.image-card img {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.caption {
+  margin: 12px 0 0;
+  color: #b2c3e3;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Text sections */
+.mission-section {
+  margin-top: 22px;
+  padding: 24px;
+  border: 1px solid rgba(120, 160, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(8, 18, 36, 0.68);
+}
+
+.mission-section h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 1.2rem;
+}
+
+.mission-section p {
+  margin: 0 0 14px;
+  color: #ced9ee;
+  line-height: 1.8;
+}
+
+.mission-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Capture data grid */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.data-item {
+  margin: 0;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(120, 160, 255, 0.1);
+}
+
+.data-item dt {
+  margin: 0 0 6px;
+  color: #89a5d9;
+  font-size: 0.9rem;
+}
+
+.data-item dd {
+  margin: 0;
+  color: #f2f6ff;
+  font-weight: 600;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .mission-gallery,
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-page {
+    width: min(100% - 20px, 1120px);
+    padding: 22px 0 48px;
+  }
+
+  .mission-hero,
+  .mission-section,
+  .image-card {
+    padding: 18px;
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #9bbcff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+

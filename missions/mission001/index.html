@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission 001 — First Light: Jupiter</title>
+
+  <!--
+    If this page lives in the root of your project, keep:
+      href="mission-001.css"
+
+    If it lives inside /missions/, change to:
+      href="../mission-001.css"
+  -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/mission-001.css">
+</head>
+
+<body>
+  <main class="mission-page">
+
+    <!-- HERO / HEADER -->
+    <section class="mission-hero">
+      <p class="mission-kicker">MISSION 001</p>
+      <h1>First Light: Jupiter</h1>
+      <p class="mission-summary">
+        First successful capture and validation of a planetary field during the observatory’s
+        pre-tracking phase.
+      </p>
+
+      <div class="mission-meta">
+        <div class="meta-pill"><span class="label">Phase</span><span class="value">Pre-tracking validation</span></div>
+        <div class="meta-pill"><span class="label">Status</span><span class="value">Completed</span></div>
+        <div class="meta-pill"><span class="label">Target</span><span class="value">Jupiter</span></div>
+        <div class="meta-pill"><span class="label">Constellation field</span><span class="value">Gemini</span></div>
+      </div>
+    </section>
+
+    <!--
+      IMAGE PATHS
+      ===========
+      This version assumes the images are in:
+        assets/img/missions/mission001/
+
+      If this HTML file is inside /missions/, change each src from:
+        assets/img/...
+      to:
+        ../assets/img/...
+    -->
+    <section class="mission-gallery">
+      <article class="image-card">
+        <h2>Raw frame</h2>
+        <img
+          src="../../assets/img/missions/mission001/mission001_raw.jpg"
+          alt="Raw frame showing Jupiter and surrounding stars"
+          loading="lazy"
+        />
+        <p class="caption">
+          Original frame captured directly from the camera before processing.
+        </p>
+      </article>
+
+      <article class="image-card">
+        <h2>Processed frame</h2>
+        <img
+          src="../../assets/img/missions/mission001/mission001_processed_small.jpg"
+          alt="Processed frame showing Jupiter and surrounding stars"
+          loading="lazy"
+        />
+        <p class="caption">
+          Processed image used to improve visibility of Jupiter and the surrounding star field.
+        </p>
+      </article>
+
+      <article class="image-card">
+        <h2>Annotated observation</h2>
+        <img
+          src="../../assets/img/missions/mission001/mission001_overlay.png"
+          alt="Processed frame annotated with reconstructed constellation lines"
+          loading="lazy"
+        />
+        <p class="caption">
+          Manual field annotation based on alignment with the reference sky map.
+        </p>
+      </article>
+
+      <article class="image-card">
+        <h2>Stellarium reference</h2>
+        <img
+          src="../../assets/img/missions/mission001/mission001_stellarium.png"
+          alt="Stellarium reference view of the observed field"
+          loading="lazy"
+        />
+        <p class="caption">
+          Reference map used to validate the observed field and confirm Jupiter’s position.
+        </p>
+      </article>
+    </section>
+
+    <!-- CAPTURE DATA -->
+    <section class="mission-section">
+      <h2>Capture data</h2>
+
+      <!--
+        Simple definition list.
+        This is cleaner than a long paragraph and easier to update later.
+      -->
+      <dl class="data-grid">
+        <div class="data-item">
+          <dt>Camera</dt>
+          <dd>Canon EOS 80D</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Focal length</dt>
+          <dd>27 mm</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>ISO</dt>
+          <dd>1600</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Exposure</dt>
+          <dd>20 s</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Aperture</dt>
+          <dd>f/4</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Capture date</dt>
+          <dd>04/04/2026 23:50</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Frames captured</dt>
+          <dd>10</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Capture mode</dt>
+          <dd>Manual</dd>
+        </div>
+
+        <div class="data-item">
+          <dt>Flash</dt>
+          <dd>Off</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="mission-section">
+      <h2>Mission process</h2>
+
+      <!--
+        The wording here is intentionally "observatory style":
+        factual, clean and not overly dramatic.
+      -->
+      <p>
+        A sequence of 10 exposures was captured and later processed to improve visibility of
+        Jupiter and the surrounding star field.
+      </p>
+
+      <p>
+        The processed frame was then compared with a Stellarium reference image of the same region
+        of sky. By matching the visible stars manually, the observed field was aligned and validated.
+      </p>
+
+      <p>
+        Based on that alignment, constellation lines were reconstructed on the captured image to
+        confirm the position of Jupiter within the observed field.
+      </p>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="mission-section">
+      <h2>Conclusion</h2>
+      <p>
+        Mission 001 confirms the system’s ability to capture, process and identify a real planetary
+        field during the observatory’s pre-tracking validation phase.
+      </p>
+
+      <p>
+        Jupiter was successfully recorded and validated against the surrounding Gemini star field.
+      </p>
+    </section>
+
+    <a href="../../index.html" class="back-link">← Back to main page</a>
+
+  </main>
+ 
+  <footer class="site-footer">  
+    <div>Home Space Observatory</div>
+
+    <div>Built for mission growth, not for blogging.</div>
+
+  <div class="credit">&nbsp;</div>
+</footer>
+
+</body>
+</html>
