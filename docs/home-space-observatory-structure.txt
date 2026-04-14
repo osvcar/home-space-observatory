@@ -1,0 +1,74 @@
+HOME SPACE OBSERVATORY — FINAL FILE STRUCTURE
+
+REPOSITORY (GitHub / website)
+Only lightweight website files go here.
+
+home-space-observatory/
+│
+├── .git
+│
+├── assets/
+│   ├── css/
+│   └── js/
+│
+├── missions/
+│   ├── mission001/
+│   │   ├── index.html
+│   │   ├── img/
+│   │   │   ├── preview.jpg
+│   │   │   ├── medium.jpg
+│   │   │   └── thumb.jpg
+│   │   ├── data/
+│   │   │   └── metadata.json
+│   │   └── docs/
+│   │       └── notes.txt
+│   │
+│   ├── mission006/
+│   │   ├── index.html
+│   │   ├── img/
+│   │   │   ├── preview.jpg
+│   │   │   ├── medium.jpg
+│   │   │   └── thumb.jpg
+│   │   ├── data/
+│   │   │   └── metadata.json
+│   │   └── docs/
+│   │       └── notes.txt
+│
+├── docs/
+│   └── mission_template_guide.pdf
+│
+├── index.html
+└── README.txt
+
+
+ARCHIVE (outside GitHub, local only)
+Heavy files live here.
+
+home-space-observatory-archive/
+│
+└── missions/
+    ├── mission001/
+    │   ├── raw/
+    │   ├── processed/
+    │   ├── final/
+    │   └── export/
+    │
+    ├── mission006/
+    │   ├── raw/
+    │   ├── processed/
+    │   ├── final/
+    │   └── export/
+
+
+WORKFLOW
+1. RAW photos -> archive/missions/missionXXX/raw/
+2. Processed files -> archive/missions/missionXXX/processed/
+3. Final full-resolution files -> archive/missions/missionXXX/final/
+4. Website versions (preview / medium / thumb) -> repo/missions/missionXXX/img/
+5. metadata.json -> repo/missions/missionXXX/data/
+
+RULES
+- RAW files never go to GitHub
+- Heavy files (>50 MB) never go to normal GitHub
+- GitHub only stores website-ready files
+- Full-resolution download files should be hosted externally when needed

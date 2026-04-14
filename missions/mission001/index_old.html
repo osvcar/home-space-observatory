@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mission 001 — First Light: Jupiter</title>
 
+  <!--
+    If this page lives in the root of your project, keep:
+      href="mission-001.css"
+
+    If it lives inside /missions/, change to:
+      href="../mission-001.css"
+  -->
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/mission-001.css">
 </head>
@@ -29,7 +36,17 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
+    <!--
+      IMAGE PATHS
+      ===========
+      This version assumes the images are in:
+        assets/img/missions/mission001/
+
+      If this HTML file is inside /missions/, change each src from:
+        assets/img/...
+      to:
+        ../assets/img/...
+    -->
     <section class="mission-gallery">
       <article class="image-card">
         <h2>Raw frame</h2>
@@ -84,91 +101,66 @@
     <section class="mission-section">
       <h2>Capture data</h2>
 
+      <!--
+        Simple definition list.
+        This is cleaner than a long paragraph and easier to update later.
+      -->
       <dl class="data-grid">
         <div class="data-item">
           <dt>Camera</dt>
-          <dd id="camera">-</dd>
+          <dd>Canon EOS 80D</dd>
         </div>
 
         <div class="data-item">
           <dt>Focal length</dt>
-          <dd id="focal-length">-</dd>
+          <dd>27 mm</dd>
         </div>
 
         <div class="data-item">
           <dt>ISO</dt>
-          <dd id="iso">-</dd>
+          <dd>1600</dd>
         </div>
 
         <div class="data-item">
           <dt>Exposure</dt>
-          <dd id="exposure">-</dd>
+          <dd>20 s</dd>
         </div>
 
         <div class="data-item">
           <dt>Aperture</dt>
-          <dd id="aperture">-</dd>
+          <dd>f/4</dd>
         </div>
 
         <div class="data-item">
           <dt>Capture date</dt>
-          <dd id="capture-date">-</dd>
+          <dd>04/04/2026 23:50</dd>
         </div>
 
         <div class="data-item">
           <dt>Frames captured</dt>
-          <dd id="frames-captured">-</dd>
+          <dd>10</dd>
         </div>
 
         <div class="data-item">
           <dt>Capture mode</dt>
-          <dd id="capture-mode">-</dd>
+          <dd>Manual</dd>
         </div>
 
         <div class="data-item">
           <dt>Flash</dt>
-          <dd id="flash">-</dd>
+          <dd>Off</dd>
         </div>
       </dl>
     </section>
-
-
-    <section class="mission-section">
-        <h2>Location and environment</h2>
-
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>Location</h3>
-                <p><strong>Name:</strong> <span id="location-name">n/a</span></p>
-                <p><strong>Country:</strong> <span id="location-country">n/a</span></p>
-                <p><strong>Latitude:</strong> <span id="location-latitude">n/a</span></p>
-                <p><strong>Longitude:</strong> <span id="location-longitude">n/a</span></p>
-            </div>
-
-            <div class="info-card">
-                <h3>Environment</h3>
-                <p><strong>Temperature:</strong> <span id="temperature">n/a</span></p>
-                <p><strong>Humidity:</strong> <span id="humidity">n/a</span></p>
-                <p><strong>Wind:</strong> <span id="wind">n/a</span></p>
-                <p><strong>Sky condition:</strong> <span id="sky-condition">n/a</span></p>
-            </div>
-        </div>
-    </section>
-
-    <section class="mission-section">
-        <h2>Mission notes</h2>
-        <p id="mission-notes">n/a</p>
-        <p>
-            <strong>Full resolution:</strong>
-            <span id="full-download">n/a</span>
-        </p>
-    </section>
-
 
     <!-- PROCESS -->
     <section class="mission-section">
       <h2>Mission process</h2>
 
+      <!--
+        The wording here is intentionally "observatory style":
+        factual, clean and not overly dramatic.
+      -->
       <p>
         A sequence of 10 exposures was captured and later processed to improve visibility of
         Jupiter and the surrounding star field.
@@ -201,15 +193,14 @@
     <a href="../../index.html" class="back-link">← Back to main page</a>
 
   </main>
-
-  <footer class="site-footer">
+ 
+  <footer class="site-footer">  
     <div>Home Space Observatory</div>
-    <div>Built for mission growth, not for blogging.</div>
-    <div class="credit">&nbsp;</div>
-  </footer>
 
-  <script src="../../assets/js/mission-loader.js"></script>
+    <div>Built for mission growth, not for blogging.</div>
+
+  <div class="credit">&nbsp;</div>
+</footer>
+
 </body>
 </html>
-
-

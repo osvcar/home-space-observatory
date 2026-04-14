@@ -1,0 +1,34 @@
+{
+  "mission": "001",
+  "title": "Wide field night sky capture",
+  "capture_data": {
+    "camera": "Canon EOS 80D",
+    "focal_length_mm": 27,
+    "iso": 1600,
+    "exposure_s": 20,
+    "aperture": "f/4",
+    "capture_date": "2026-04-04T23:50:00",
+    "frames_captured": 10,
+    "capture_mode": "Manual",
+    "flash": false
+  },
+  "location": {
+    "name": "Timisoara",
+    "country": "Romania",
+    "latitude": 45.7489,
+    "longitude": 21.2087
+  },
+  "environment": {
+    "temperature_c": null,
+    "humidity_percent": null,
+    "wind_kmh": null,
+    "sky_condition": "Clear"
+  },
+  "images": {
+    "preview": "img/preview.jpg",
+    "medium": "img/medium.jpg",
+    "thumbnail": "img/thumb.jpg",
+    "full_resolution_download": "PASTE_EXTERNAL_LINK_HERE"
+  },
+  "notes": "Initial wide-field test capture"
+}

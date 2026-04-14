@@ -1,0 +1,64 @@
+{
+  "mission": "SOL",
+  "mission_code": "MISSION SOL",
+  "title": "Solar Chromosphere Observation",
+  "summary": "Guided solar observation session at the Observatório do Lago Alqueva (OLA), including explanation of solar prominences, solar activity and the dynamics of the Sun and other stars.",
+  "phase": "Pre-project reference",
+  "status": "Completed",
+  "target": "Sun",
+  "constellation_field": "n/a",
+
+  "capture_data": {
+    "camera": "Observatory equipment",
+    "focal_length_mm": "n/a",
+    "iso": "n/a",
+    "exposure_s": "n/a",
+    "aperture": "n/a",
+    "capture_date": "2025-08-24T17:00:00",
+    "frames_captured": "n/a",
+    "capture_mode": "Guided observation",
+    "flash": "n/a"
+  },
+
+  "location": {
+    "name": "Observatório do Lago Alqueva (OLA)",
+    "country": "Portugal",
+    "latitude": 38.4440393,
+    "longitude": -7.3661372
+  },
+
+  "environment": {
+    "temperature_c": "n/a",
+    "humidity_percent": "n/a",
+    "wind_kmh": "n/a",
+    "sky_condition": "Clear"
+  },
+
+  "gallery": [
+    {
+      "title": "Solar Chromosphere — 21/08/2025",
+      "file": "img/solar_21082025.png",
+      "alt": "Solar chromosphere observed at OLA on 21 August 2025",
+      "caption": "Image sent after the solar observation session held on 21/08/2025."
+    },
+    {
+      "title": "Solar Chromosphere — 19/08/2025",
+      "file": "img/solar_19082025.jpg",
+      "alt": "Solar chromosphere with large prominence observed on 19 August 2025",
+      "caption": "Bonus image sent afterwards, showing the largest solar prominence observed that month."
+    }
+  ],
+
+  "mission_process": [
+    "Guided solar observation session at the Observatório do Lago Alqueva (OLA) in Monsaraz.",
+    "During the session, the solar chromosphere, solar prominences, solar explosions and the broader dynamics of the Sun and other stars were explained.",
+    "After the visit, Frederico Arez shared two solar chromosphere images by email, including the image acquired on the day of observation and an additional image from 19/08/2025."
+  ],
+
+  "conclusion": [
+    "This mission records a foundational solar observation experience that predates the formal creation of the Home Space Observatory project.",
+    "It is included as a reference mission because it contributed directly to the project’s scientific and observational inspiration."
+  ],
+
+  "notes": "Images courtesy of Frederico Arez. Observation session took place around 17:00."
+}

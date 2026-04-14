@@ -1,11 +1,8 @@
 /* =========================================================
-   Mission 001 page styles
-   ---------------------------------------------------------
-   This file is intentionally self-contained, so it is easy
-   to read, modify and merge into your main stylesheet later.
+   Mission template page styles
+   Standard layout for all mission pages
    ========================================================= */
 
-/* Basic reset */
 * {
   box-sizing: border-box;
 }
@@ -23,15 +20,12 @@ body {
     linear-gradient(180deg, #071120 0%, #050b14 100%);
 }
 
-/* Main page wrapper */
 .mission-page {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
   padding: 48px 0 32px;
 }
 
-
-/* Hero block */
 .mission-hero {
   margin-bottom: 40px;
   padding: 28px;
@@ -63,7 +57,6 @@ body {
   line-height: 1.7;
 }
 
-/* Small metadata pills */
 .mission-meta {
   display: flex;
   flex-wrap: wrap;
@@ -90,7 +83,6 @@ body {
   font-weight: 600;
 }
 
-/* Gallery */
 .mission-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -125,7 +117,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* Text sections */
 .mission-section {
   margin-top: 22px;
   padding: 24px;
@@ -150,7 +141,6 @@ body {
   margin-bottom: 0;
 }
 
-/* Capture data grid */
 .data-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -178,37 +168,6 @@ body {
   font-weight: 600;
 }
 
-/* Responsive layout */
-@media (max-width: 900px) {
-  .mission-gallery,
-  .data-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mission-page {
-    width: min(100% - 20px, 1120px);
-    padding: 22px 0 48px;
-  }
-
-  .mission-hero,
-  .mission-section,
-  .image-card {
-    padding: 18px;
-  }
-}
-
-.back-link {
-  display: inline-block;
-  margin-top: 16px;
-  color: #9bbcff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.back-link:hover {
-  text-decoration: underline;
-}
-
 .info-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -231,12 +190,45 @@ body {
   margin: 0 0 8px;
 }
 
-.info-card p:last-child {
-  margin-bottom: 0;
+.back-link {
+  display: inline-block;
+  margin-top: 16px;
+  color: #9bbcff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #9bbcff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.download-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
+  .mission-gallery,
+  .data-grid,
   .info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .mission-page {
+    width: min(100% - 20px, 1120px);
+    padding: 22px 0 48px;
+  }
+
+  .mission-hero,
+  .mission-section,
+  .image-card {
+    padding: 18px;
   }
 }

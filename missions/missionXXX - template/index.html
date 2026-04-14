@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission Template</title>
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/mission-template.css">
+</head>
+
+<body>
+  <main class="mission-page">
+
+    <section class="mission-hero">
+      <p class="mission-kicker" id="mission-kicker">MISSION XXX</p>
+      <h1 id="mission-title">Mission title</h1>
+      <p class="mission-summary" id="mission-summary">Mission summary</p>
+
+      <div class="mission-meta">
+        <div class="meta-pill"><span class="label">Phase</span><span class="value" id="phase">n/a</span></div>
+        <div class="meta-pill"><span class="label">Status</span><span class="value" id="status">n/a</span></div>
+        <div class="meta-pill"><span class="label">Target</span><span class="value" id="target">n/a</span></div>
+        <div class="meta-pill"><span class="label">Constellation field</span><span class="value" id="constellation-field">n/a</span></div>
+      </div>
+    </section>
+
+    <section class="mission-gallery" id="mission-gallery">
+      <!-- Gallery generated automatically from JSON -->
+    </section>
+
+    <section class="mission-section">
+      <h2>Capture data</h2>
+
+      <dl class="data-grid">
+        <div class="data-item"><dt>Camera</dt><dd id="camera">-</dd></div>
+        <div class="data-item"><dt>Focal length</dt><dd id="focal-length">-</dd></div>
+        <div class="data-item"><dt>ISO</dt><dd id="iso">-</dd></div>
+        <div class="data-item"><dt>Exposure</dt><dd id="exposure">-</dd></div>
+        <div class="data-item"><dt>Aperture</dt><dd id="aperture">-</dd></div>
+        <div class="data-item"><dt>Capture date</dt><dd id="capture-date">-</dd></div>
+        <div class="data-item"><dt>Frames captured</dt><dd id="frames-captured">-</dd></div>
+        <div class="data-item"><dt>Capture mode</dt><dd id="capture-mode">-</dd></div>
+        <div class="data-item"><dt>Flash</dt><dd id="flash">-</dd></div>
+      </dl>
+    </section>
+
+    <section class="mission-section">
+      <h2>Location and environment</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Location</h3>
+          <p><strong>Name:</strong> <span id="location-name">n/a</span></p>
+          <p><strong>Country:</strong> <span id="location-country">n/a</span></p>
+          <p><strong>Latitude:</strong> <span id="location-latitude">n/a</span></p>
+          <p><strong>Longitude:</strong> <span id="location-longitude">n/a</span></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Environment</h3>
+          <p><strong>Temperature:</strong> <span id="temperature">n/a</span></p>
+          <p><strong>Humidity:</strong> <span id="humidity">n/a</span></p>
+          <p><strong>Wind:</strong> <span id="wind">n/a</span></p>
+          <p><strong>Sky condition:</strong> <span id="sky-condition">n/a</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section">
+      <h2>Mission process</h2>
+      <div id="mission-process"></div>
+    </section>
+
+    <section class="mission-section">
+      <h2>Conclusion</h2>
+      <div id="mission-conclusion"></div>
+    </section>
+
+    <section class="mission-section">
+      <h2>Notes</h2>
+      <p id="mission-notes">n/a</p>
+      <a id="full-download" class="download-link">n/a</a>
+    </section>
+
+    <a href="../../index.html" class="back-link">← Back to main page</a>
+
+  </main>
+
+  <footer class="site-footer">
+    <div>Home Space Observatory</div>
+    <div>Built for mission growth, not for blogging.</div>
+    <div class="credit">&nbsp;</div>
+  </footer>
+
+  <script src="../../assets/js/mission-loader.js"></script>
+</body>
+</html>

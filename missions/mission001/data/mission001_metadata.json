@@ -1,0 +1,34 @@
+{
+  "mission": "001",
+  "title": "Wide field night sky capture",
+  "capture_data": {
+    "camera": "Canon EOS 80D",
+    "focal_length_mm": 27,
+    "iso": 1600,
+    "exposure_s": 20,
+    "aperture": "f/4",
+    "capture_date": "2026-04-04T23:50:00",
+    "frames_captured": 10,
+    "capture_mode": "Manual",
+    "flash": false
+  },
+  "location": {
+    "name": "Classified",
+    "country": "Poland",
+    "latitude": "Classified",
+    "longitude": "Classified"
+  },
+  "environment": {
+    "temperature_c": "n/a",
+    "humidity_percent": "n/a",
+    "wind_kmh": "n/a",
+    "sky_condition": "Clear"
+  },
+  "images": {
+    "preview": "img/preview.jpg",
+    "medium": "img/medium.jpg",
+    "thumbnail": "img/thumb.jpg",
+    "full_resolution_download": "in process"
+  },
+  "notes": "Initial wide-field test capture"
+}
