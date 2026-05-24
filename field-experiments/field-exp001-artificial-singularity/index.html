@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>FIELD EXPERIMENT 001 — ARTIFICIAL SINGULARITY</title>
+  <title>
+    FIELD EXPERIMENT 001 — ARTIFICIAL SINGULARITY
+  </title>
 
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/mission-001.css">
 
   <style>
-
-    /* =========================================================
-       CUSTOM FIELD EXPERIMENT STYLES
-       ========================================================= */
 
     .warning-box {
       border: 1px solid #ff4d2e;
@@ -42,129 +41,35 @@
       display: block;
     }
 
-    /* =========================================================
-       IMAGE GALLERY — 2 COLUMNS
-       ========================================================= */
-
-    .mission-gallery {
+    .gallery-two {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .image-card {
-      background: rgba(5, 15, 35, 0.7);
-      border: 1px solid rgba(120, 170, 255, 0.15);
-      border-radius: 18px;
-      padding: 1rem;
-    }
-
-    .image-card h2 {
-      margin-top: 0;
-      margin-bottom: 0.8rem;
-      font-size: 1.05rem;
-    }
-
-    .image-card img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 12px;
-      display: block;
-    }
-
-    /* =========================================================
-       CAMERA SCREEN SPECIAL IMAGE
-       ========================================================= */
-
-    .camera-screen-img {
-      height: auto !important;
-      max-height: 520px;
-      object-fit: contain !important;
-      background: rgba(0,0,0,0.3);
-    }
-
-    .caption {
-      margin-top: 0.9rem;
-      line-height: 1.55;
-      opacity: 0.92;
-    }
-
-    /* =========================================================
-       TECHNICAL / SCIENCE IMAGES
-       ========================================================= */
-
-    .technical-image {
       margin-top: 1.5rem;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 180, 80, 0.25);
-      background: rgba(255,255,255,0.03);
     }
 
-    .technical-image img {
+    .gallery-two .image-card img {
       width: 100%;
+      border-radius: 14px;
       display: block;
     }
 
-    /* =========================================================
-       PDF CONTAINER
-       ========================================================= */
-
-    .pdf-container {
-      margin-top: 2rem;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 180, 80, 0.25);
-    }
-
-    .pdf-container iframe {
-      width: 100%;
-      height: 900px;
-      border: none;
-      background: #111;
-    }
-
-    .download-link {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 1.2rem;
-      border-radius: 10px;
-      background: rgba(255, 170, 60, 0.15);
-      border: 1px solid rgba(255, 170, 60, 0.35);
-      text-decoration: none;
-      color: #ffd27d;
-      font-weight: 600;
-    }
-
-    .download-link:hover {
-      background: rgba(255, 170, 60, 0.25);
-    }
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media (max-width: 800px) {
-
-      .mission-gallery {
-        grid-template-columns: 1fr;
-      }
-
+    .camera-screen img {
+      max-height: 520px;
+      width: auto;
+      margin: auto;
+      display: block;
     }
 
   </style>
+
 </head>
 
 <body>
 
   <main class="mission-page">
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
+    <!-- HERO -->
 
     <section class="mission-hero">
 
@@ -205,7 +110,7 @@
 
         <div class="meta-pill">
           <span class="label">Chemistry</span>
-          <span class="value">Combustion / oxidation</span>
+          <span class="value">Combustion / Oxidation</span>
         </div>
 
       </div>
@@ -214,211 +119,310 @@
 
         <img
           src="img/field-exp001_processed_low_res.jpeg"
-          alt="Artificial singularity final processed image"
+          alt="Final processed artificial singularity image"
         >
 
       </div>
 
     </section>
 
-    <!-- =====================================================
-         PURPOSE
-         ===================================================== -->
+    <!-- NASA COMPARISON -->
 
     <section class="mission-section">
 
-      <h2>Experiment purpose</h2>
+      <h2>
+        Visual similarity to astrophysical accretion disks
+      </h2>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <!-- DESCARREGA ESTA IMAGEM E GUARDA COMO:
+               img/nasa_black_hole.jpg -->
+
+          <img
+            src="img/nasa_black_hole.jpg"
+            alt="NASA black hole visualization"
+            style="width:100%; border-radius:16px;"
+          >
+
+          <p style="margin-top:1rem;">
+
+            Although this experiment is entirely classical physics,
+            the resulting long-exposure structure visually resembles
+            theoretical black hole accretion disk renderings
+            and gravitational lensing simulations.
+
+          </p>
+
+          <p>
+
+            NASA visualisations frequently use similar curved
+            light structures to represent matter orbiting
+            near extreme gravitational fields.
+
+          </p>
+
+          <p>
+
+            <strong>Source:</strong>
+
+            <a
+              href="https://science.nasa.gov/universe/black-holes/new-nasa-black-hole-visualization-takes-viewers-beyond-the-brink/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              NASA — Black Hole Visualization
+            </a>
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PURPOSE -->
+
+    <section class="mission-section">
+
+      <h2>
+        Experiment purpose
+      </h2>
 
       <p>
+
         This field experiment is not part of the main astronomical mission sequence.
-        It belongs to the Home Space Observatory field experiments archive:
-        a dedicated area for camera tests, physics demonstrations,
+        It belongs to the Home Space Observatory field experiments log:
+        a place for camera tests, physics demonstrations,
         optical practice and operational learning.
+
       </p>
 
       <p>
+
         The objective was to practise long exposure photography before the future Polaris camera,
         tracking systems and signal-monitoring experiments become fully operational.
+
       </p>
 
     </section>
 
-    <!-- =====================================================
-         IMAGE GALLERY
-         ===================================================== -->
-
-    <section class="mission-gallery">
-
-      <!-- CAMERA SCREEN -->
-
-      <article class="image-card">
-
-        <h2>Camera screen</h2>
-
-        <img
-          class="camera-screen-img"
-          src="img/field-exp001_camera_settings_low_res.jpeg"
-          alt="Camera screen during experiment"
-        >
-
-        <p class="caption">
-          Camera display during the experiment,
-          immediately after one of the successful captures.
-        </p>
-
-      </article>
-
-      <!-- FINAL IMAGE -->
-
-      <article class="image-card">
-
-        <h2>Final processed image</h2>
-
-        <img
-          src="img/field-exp001_processed_low_res.jpeg"
-          alt="Processed final image"
-        >
-
-        <p class="caption">
-          Final image processed in Adobe Photoshop.
-          Contrast, highlights, shadows and overall visibility were adjusted.
-        </p>
-
-      </article>
-
-      <!-- =====================================================
-           RAW CAPTURES
-           ===================================================== -->
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0894</h2>
-
-        <img
-          src="img/IMG_0894.jpg"
-          alt="Long exposure field image"
-        >
-
-        <p class="caption">
-          Early experimental frame with strong directional spark arcs.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0895</h2>
-
-        <img
-          src="img/IMG_0895.jpg"
-          alt="Steel wool long exposure image"
-        >
-
-        <p class="caption">
-          Lower rotational speed produced a more compact light structure.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0896</h2>
-
-        <img
-          src="img/IMG_0896.jpeg"
-          alt="Artificial black hole effect"
-        >
-
-        <p class="caption">
-          One of the first images where the “artificial singularity” effect became visible.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0897</h2>
-
-        <img
-          src="img/IMG_0897.jpg"
-          alt="Long exposure light dynamics"
-        >
-
-        <p class="caption">
-          Strong rotational symmetry with visible projectile-like spark trajectories.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0898</h2>
-
-        <img
-          src="img/IMG_0898.jpg"
-          alt="Combustion experiment image"
-        >
-
-        <p class="caption">
-          Overexposed frame caused by higher spark density and prolonged ignition.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0899</h2>
-
-        <img
-          src="img/IMG_0899.jpg"
-          alt="Long exposure steel wool experiment"
-        >
-
-        <p class="caption">
-          More stable circular movement generated a cleaner ring structure.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0900</h2>
-
-        <img
-          src="img/IMG_0900.jpg"
-          alt="Experimental combustion frame"
-        >
-
-        <p class="caption">
-          High-intensity spark burst during peak combustion phase.
-        </p>
-
-      </article>
-
-      <article class="image-card">
-
-        <h2>Field capture — IMG_0901</h2>
-
-        <img
-          src="img/IMG_0901.jpg"
-          alt="Long exposure trajectory image"
-        >
-
-        <p class="caption">
-          Final raw capture before shutdown and equipment inspection.
-        </p>
-
-      </article>
-
-    </section>
-
-    <!-- =====================================================
-         CAPTURE DATA
-         ===================================================== -->
+    <!-- GALLERY -->
 
     <section class="mission-section">
 
-      <h2>Capture data</h2>
+      <h2>
+        Image archive
+      </h2>
+
+      <div class="gallery-two">
+
+        <article class="image-card">
+
+          <h3>
+            Final processed image
+          </h3>
+
+          <img
+            src="img/field-exp001_processed_low_res.jpeg"
+            alt="Processed final image"
+          >
+
+          <p class="caption">
+
+            Final image processed in Adobe Photoshop.
+            Contrast, highlights, shadows and overall visibility were adjusted.
+
+          </p>
+
+        </article>
+
+        <article class="image-card camera-screen">
+
+          <h3>
+            Camera screen
+          </h3>
+
+          <img
+            src="img/field-exp001_camera_settings_low_res.jpeg"
+            alt="Camera settings screen"
+          >
+
+          <p class="caption">
+
+            Camera display during the experiment,
+            immediately after one of the successful captures.
+
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0894
+          </h3>
+
+          <img src="img/IMG_0894.jpg" alt="IMG 0894">
+
+          <p class="caption">
+            Early experimental frame with strong directional spark arcs.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0895
+          </h3>
+
+          <img src="img/IMG_0895.jpg" alt="IMG 0895">
+
+          <p class="caption">
+            Compact circular light structure with lower rotational arc.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0896
+          </h3>
+
+          <img src="img/IMG_0896.jpeg" alt="IMG 0896">
+
+          <p class="caption">
+            Strong circular symmetry with dense particle emission.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0897
+          </h3>
+
+          <img src="img/IMG_0897.jpg" alt="IMG 0897">
+
+          <p class="caption">
+            One of the strongest raw-looking field captures before final processing.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0898
+          </h3>
+
+          <img src="img/IMG_0898.jpg" alt="IMG 0898">
+
+          <p class="caption">
+            Extremely intense spark emission producing near-solid light regions.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0899
+          </h3>
+
+          <img src="img/IMG_0899.jpg" alt="IMG 0899">
+
+          <p class="caption">
+            Bright circular structure with asymmetric particle trails.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0900
+          </h3>
+
+          <img src="img/IMG_0900.jpg" alt="IMG 0900">
+
+          <p class="caption">
+            Overexposed ignition phase showing combustion intensity.
+          </p>
+
+        </article>
+
+        <article class="image-card">
+
+          <h3>
+            Field capture — IMG_0901
+          </h3>
+
+          <img src="img/IMG_0901.jpg" alt="IMG 0901">
+
+          <p class="caption">
+            Extended curved spark trails resembling orbital structures.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- LOCATION -->
+
+    <section class="mission-section">
+
+      <h2>
+        Location and environment
+      </h2>
+
+      <div class="info-grid">
+
+        <div class="info-card">
+
+          <h3>
+            Location
+          </h3>
+
+          <p><strong>Name:</strong> Classified</p>
+          <p><strong>Country:</strong> Poland</p>
+          <p><strong>Latitude:</strong> Classified</p>
+          <p><strong>Longitude:</strong> Classified</p>
+
+        </div>
+
+        <div class="info-card">
+
+          <h3>
+            Environment
+          </h3>
+
+          <p><strong>Temperature:</strong> n/a</p>
+          <p><strong>Humidity:</strong> n/a</p>
+          <p><strong>Wind:</strong> n/a</p>
+          <p><strong>Sky condition:</strong> Clear</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- CAPTURE DATA -->
+
+    <section class="mission-section">
+
+      <h2>
+        Capture data
+      </h2>
 
       <dl class="data-grid">
 
@@ -471,185 +475,185 @@
 
     </section>
 
-    <!-- =====================================================
-         PHYSICS
-         ===================================================== -->
+    <!-- PHYSICS -->
 
     <section class="mission-section">
 
-      <h2>Newton’s laws in action</h2>
+      <h2>
+        Newton’s laws in action
+      </h2>
+
+      <img
+        src="img/newton.png"
+        alt="Newton laws and particle motion"
+        style="width:100%; border-radius:18px; margin-bottom:1.5rem;"
+      >
 
       <p>
-        The visible spark trajectories are governed by classical mechanics.
-        Each incandescent particle behaves like a tiny projectile released tangentially
-        from the rotating steel wool.
+
+        The final image looks similar to an artificial black hole,
+        but the visible trajectories are explained by classical mechanics.
+
       </p>
 
       <p>
-        Long exposure photography captures the complete trajectory,
-        transforming thousands of independent particle motions into a continuous light structure.
+
+        Each incandescent iron particle leaves the rotating steel wool
+        with tangential velocity and then follows a projectile trajectory
+        under gravity.
+
       </p>
-
-      <div class="technical-image">
-
-        <img
-          src="img/newton.png"
-          alt="Newtonian mechanics explanation"
-        >
-
-      </div>
 
     </section>
 
-    <!-- =====================================================
-         CHEMISTRY
-         ===================================================== -->
+    <!-- CHEMISTRY -->
 
     <section class="mission-section">
 
-      <h2>Chemistry of combustion and oxidation</h2>
+      <h2>
+        Combustion chemistry
+      </h2>
+
+      <img
+        src="img/chemistry_combustion_notes.png"
+        alt="Combustion chemistry notes"
+        style="width:100%; border-radius:18px; margin-bottom:1.5rem;"
+      >
 
       <p>
-        The glowing sparks are tiny iron particles undergoing rapid oxidation.
-        Steel wool burns because iron reacts with oxygen from the air,
-        releasing heat and light energy.
+
+        The sparks are small incandescent iron particles created during
+        rapid oxidation of steel wool.
+
       </p>
 
       <p>
-        This is fundamentally the same process as rusting,
-        but occurring extremely quickly due to the high surface area and ignition temperature.
+
+        This is essentially accelerated rusting:
+        the same oxidation process, but occurring extremely quickly
+        because of high temperature and increased contact with oxygen.
+
       </p>
 
       <p>
-        The experiment also demonstrates the fire triangle:
+
+        The combustion triangle is also present:
+        fuel (steel wool), oxygen from the air
+        and activation energy provided by ignition.
+
       </p>
-
-      <ul>
-        <li>Fuel → steel wool (iron)</li>
-        <li>Oxidizer → oxygen from the atmosphere</li>
-        <li>Activation energy → lighter / ignition source</li>
-      </ul>
-
-      <div class="technical-image">
-
-        <img
-          src="img/chemistry_combustion_notes.png"
-          alt="Combustion chemistry notes"
-        >
-
-      </div>
 
     </section>
 
-    <!-- =====================================================
-         SAFETY
-         ===================================================== -->
+    <!-- SAFETY -->
 
     <section class="mission-section">
 
-      <h2>Safety notice</h2>
+      <h2>
+        Safety notice
+      </h2>
 
       <div class="warning-box">
 
-        <h3>Fire is beautiful, but it does not forgive.</h3>
+        <h3>
+          Fire is beautiful, but it does not forgive.
+        </h3>
 
         <p>
-          This experiment involved real fire, hot sparks and burning metal particles.
-          During the session, one spark landed on a foot,
-          burned through the sock and burned the skin.
+
+          This experiment involved real fire,
+          hot sparks and burning metal particles.
+
         </p>
 
         <p>
-          Always use:
+
+          During the session,
+          one spark landed on a foot,
+          burned through the sock
+          and burned the skin.
+
         </p>
 
-        <ul>
-          <li>Safety goggles</li>
-          <li>Closed footwear or boots</li>
-          <li>Protective clothing</li>
-          <li>Gloves</li>
-          <li>Open outdoor areas</li>
-        </ul>
-
         <p>
-          Water or a fire extinguisher must always be immediately available.
+
+          Always use safety goggles,
+          boots or closed footwear,
+          gloves and protective clothing.
+
         </p>
 
       </div>
 
     </section>
 
-    <!-- =====================================================
-         PDF DOCUMENT
-         ===================================================== -->
+    <!-- PDF -->
 
     <section class="mission-section">
 
-      <h2>Field document</h2>
+      <h2>
+        Experiment leaflet
+      </h2>
 
       <p>
-        The following field leaflet summarizes the experiment,
-        required equipment, operational procedure and safety considerations.
+
+        The following PDF was created as a mission-style educational leaflet
+        combining photography, physics and chemistry explanations.
+
       </p>
 
-      <div class="pdf-container">
+      <iframe
+        src="docs/Black hole in the garden - leaflet.pdf"
+        width="100%"
+        height="900px"
+        style="border:none; border-radius:18px;"
+      ></iframe>
 
-        <iframe
-          src="docs/Black hole in the garden - leaflet.pdf"
-        ></iframe>
+      <p style="margin-top:1rem;">
 
-      </div>
+        <a
+          class="download-link"
+          href="docs/Black hole in the garden - leaflet.pdf"
+          target="_blank"
+        >
 
-      <a
-        class="download-link"
-        href="docs/Black hole in the garden - leaflet.pdf"
-        target="_blank"
-      >
-        Download field leaflet PDF
-      </a>
+          Download field leaflet PDF
 
-    </section>
+        </a>
 
-    <!-- =====================================================
-         CONCLUSION
-         ===================================================== -->
-
-    <section class="mission-section">
-
-      <h2>Conclusion</h2>
-
-      <p>
-        Field Experiment 001 successfully validated:
-      </p>
-
-      <ul>
-        <li>Long exposure camera operation</li>
-        <li>Manual acquisition workflow</li>
-        <li>Basic post-processing pipeline</li>
-        <li>Physics visualisation concepts</li>
-        <li>Field safety procedures</li>
-      </ul>
-
-      <p>
-        The experiment also created a useful bridge between photography,
-        physics and future Home Space Observatory astrophotography missions.
       </p>
 
     </section>
 
-    <!-- =====================================================
-         BACK LINK
-         ===================================================== -->
+    <!-- CONCLUSION -->
+
+    <section class="mission-section">
+
+      <h2>
+        Conclusion
+      </h2>
+
+      <p>
+
+        Field Experiment 001 successfully validated camera handling,
+        long exposure control and basic post-processing workflow.
+
+      </p>
+
+      <p>
+
+        It also created a useful bridge between photography,
+        physics, chemistry and future HSO astrophotography work.
+
+      </p>
+
+    </section>
 
     <a href="../../index.html" class="back-link">
       ← Back to main page
     </a>
 
   </main>
-
-  <!-- =====================================================
-       FOOTER
-       ===================================================== -->
 
   <footer class="site-footer">
 
@@ -662,7 +666,7 @@
     </div>
 
     <div class="credit">
-      Field experiment archive
+      Experimental documentation mission.
     </div>
 
   </footer>
