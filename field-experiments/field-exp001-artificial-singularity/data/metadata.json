@@ -1,0 +1,83 @@
+{
+  "mission": "FIELD EXPERIMENT 001",
+  "title": "ARTIFICIAL SINGULARITY",
+  "summary": "Long exposure light dynamics experiment conducted during camera familiarization and astrophotography preparation activities.",
+
+  "phase": "Development Lab",
+  "status": "Complete",
+  "target": "Light dynamics",
+  "constellation_field": "Experimental physics",
+
+  "capture_data": {
+    "camera": "Canon EOS 80D",
+    "focal_length": "19 mm",
+    "iso": "ISO 200",
+    "exposure": "4 seconds",
+    "aperture": "f/3.5",
+    "capture_date": "05 April 2026",
+    "frames_captured": "8",
+    "mode": "Manual",
+    "flash": "Disabled"
+  },
+
+  "location": {
+    "name": "Private garden test site",
+    "country": "Classified",
+    "latitude": "Classified",
+    "longitude": "Classified"
+  },
+
+  "environment": {
+    "temperature": "Cold night conditions",
+    "humidity": "Moderate",
+    "wind": "Low wind",
+    "sky_condition": "Partially cloudy"
+  },
+
+  "process": [
+    "This field experiment was conducted as part of camera familiarization and long exposure photography training before operational astrophotography missions.",
+    "Steel wool was ignited and rotated in controlled circular motion while long exposure images were captured using manual settings.",
+    "The experiment also served as a practical demonstration of Newtonian mechanics and ballistic trajectories."
+  ],
+
+  "conclusion": [
+    "The experiment successfully produced an artificial singularity-like visual effect using long exposure photography.",
+    "The session provided valuable practical experience in exposure control, motion capture and image post-processing.",
+    "The resulting trajectories visually demonstrate several aspects of Newton's laws of motion."
+  ],
+
+  "notes": "This experiment involved real fire and hot metal particles. Appropriate safety precautions are essential. Final images were post-processed using Adobe Photoshop.",
+
+  "images": [
+    {
+      "src": "img/field-exp001_processed_low_res.jpeg",
+      "caption": "Final processed image"
+    },
+    {
+      "src": "img/field-exp001_camera_settings_low_res.jpeg",
+      "caption": "Camera settings during field experiment"
+    },
+    {
+      "src": "img/IMG_0894.jpg",
+      "caption": "Experimental capture sequence"
+    },
+    {
+      "src": "img/IMG_0895.jpg",
+      "caption": "Experimental capture sequence"
+    },
+    {
+      "src": "img/IMG_0896.jpeg",
+      "caption": "Experimental capture sequence"
+    },
+    {
+      "src": "img/IMG_0897.jpg",
+      "caption": "Experimental capture sequence"
+    },
+    {
+      "src": "img/IMG_0898.jpg",
+      "caption": "Experimental capture sequence"
+    }
+  ],
+
+  "full_download": "docs/HSO_Artificial_Singularity_Field_Guide.pdf"
+}
