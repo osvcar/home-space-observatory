@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "node": "NODE 001",
+    "name": "Atmospheric Monitoring Station",
+    "station_id": "IPIOTR18",
+    "updated_utc": "2026-05-25T17:41:20.796225+00:00",
+    "observed_utc": "2026-05-25T17:40:18Z",
+    "observed_local": "2026-05-25 19:40:18",
+    "temperature_c": 25,
+    "heat_index_c": 26,
+    "humidity_percent": 99,
+    "dewpoint_c": 25,
+    "pressure_hpa": 1013.88,
+    "wind_speed_kmh": 1,
+    "wind_gust_kmh": 2,
+    "wind_direction_deg": 228,
+    "precip_rate_mm": 0.0,
+    "precip_total_mm": 0.0,
+    "uv_index": 0.0,
+    "solar_radiation_wm2": 35.7,
+    "qc_status": 1
+  },
+  {
+    "node": "NODE 001",
+    "name": "Atmospheric Monitoring Station",
+    "station_id": "IPIOTR18",
+    "updated_utc": "2026-05-25T17:49:05.878924+00:00",
+    "observed_utc": "2026-05-25T17:49:02Z",
+    "observed_local": "2026-05-25 19:49:02",
+    "temperature_c": 24,
+    "heat_index_c": 26,
+    "humidity_percent": 99,
+    "dewpoint_c": 24,
+    "pressure_hpa": 1013.88,
+    "wind_speed_kmh": 1,
+    "wind_gust_kmh": 3,
+    "wind_direction_deg": 285,
+    "precip_rate_mm": 0.0,
+    "precip_total_mm": 0.0,
+    "uv_index": 0.0,
+    "solar_radiation_wm2": 29.8,
+    "qc_status": 1
+  }
+]
