@@ -11,11 +11,9 @@ permissions:
 
 jobs:
   update-weather:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -28,13 +26,11 @@ jobs:
         env:
           WU_API_KEY: ${{ secrets.WU_API_KEY }}
           WU_STATION_ID: ${{ secrets.WU_STATION_ID }}
-
         run: |
           python scripts/update_node001_weather.py
 
       - name: Commit updated telemetry
         run: |
-
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
