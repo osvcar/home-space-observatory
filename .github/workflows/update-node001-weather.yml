@@ -1,0 +1,46 @@
+name: Update NODE 001 telemetry
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-weather:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run telemetry update script
+        env:
+          WU_API_KEY: ${{ secrets.WU_API_KEY }}
+          WU_STATION_ID: ${{ secrets.WU_STATION_ID }}
+
+        run: |
+          python scripts/update_node001_weather.py
+
+      - name: Commit updated telemetry
+        run: |
+
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add data/nodes/node001/
+
+          git diff --cached --quiet || (
+            git commit -m "Automatic NODE 001 telemetry update"
+            git push
+          )
