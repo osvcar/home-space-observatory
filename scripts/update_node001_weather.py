@@ -7,8 +7,10 @@ from pathlib import Path
 # This script fetches current data from Weather Underground
 # and writes it into the public HSO telemetry file.
 
-API_KEY = "7af6222d15dc4201b6222d15dce2010d"
-STATION_ID = "IPIOTR18"
+import os
+
+API_KEY = os.environ["WU_API_KEY"]
+STATION_ID = os.environ.get("WU_STATION_ID", "IPIOTR18")
 
 OUTPUT_FILE = Path("data/nodes/node001/current.json")
 
