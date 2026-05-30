@@ -2,10 +2,13 @@
 // Reads public telemetry JSON files and updates the node page.
 // Author: Migus in collaboration with ChatGPT
 
+const NODE001_DATA_BASE = "/data/nodes/node001";
+
 async function loadNode001Telemetry() {
   try {
     await loadCurrentTelemetry();
     await loadDailySummary();
+    await loadObservationWindow();
   } catch (error) {
     console.error("NODE 001 telemetry error:", error);
 
@@ -17,14 +20,18 @@ async function loadNode001Telemetry() {
   }
 }
 
-async function loadCurrentTelemetry() {
-  const response = await fetch("../../data/nodes/node001/current.json");
+async function fetchJson(path) {
+  const response = await fetch(`${path}?ts=${Date.now()}`);
 
   if (!response.ok) {
-    throw new Error("Could not load NODE 001 current telemetry file.");
+    throw new Error(`Could not load: ${path}`);
   }
 
-  const data = await response.json();
+  return response.json();
+}
+
+async function loadCurrentTelemetry() {
+  const data = await fetchJson(`${NODE001_DATA_BASE}/current.json`);
 
   setText("node-temp", formatValue(data.temperature_c, " °C"));
   setText("node-humidity", formatValue(data.humidity_percent, " %"));
@@ -38,25 +45,29 @@ async function loadCurrentTelemetry() {
   setText("node-rain", formatValue(data.precip_total_mm, " mm"));
   setText("node-uv", formatValue(data.uv_index, ""));
 
+  setText("node-date-local", formatDateOnly(data.node_date_local));
+  setText("node-time-local", formatTimeOnly(data.node_time_local));
+  setText("node-time-utc", formatUtcTimeOnly(data.observed_utc));
+
   setText(
     "node-last-update",
     formatLastUpdate(data.observed_utc || data.updated_utc)
   );
+
+  if (data.condensation_risk) {
+    updateCondensationRisk(data.condensation_risk);
+  }
 }
 
 async function loadDailySummary() {
-  const response = await fetch("../../data/nodes/node001/daily-summary.json");
-
-  if (!response.ok) {
-    throw new Error("Could not load NODE 001 daily summary file.");
-  }
-
-  const summary = await response.json();
+  const summary = await fetchJson(`${NODE001_DATA_BASE}/daily-summary.json`);
 
   const temperature = summary.temperature || {};
   const wind = summary.wind || {};
   const pressure = summary.pressure || {};
   const uv = summary.uv || {};
+
+  setText("summary-date-local", formatDateOnly(summary.date_local));
 
   setText(
     "summary-min-temp",
@@ -110,6 +121,78 @@ async function loadDailySummary() {
   );
 }
 
+async function loadObservationWindow() {
+  const windowData = await fetchJson(`${NODE001_DATA_BASE}/observation-window.json`);
+
+  const temperature = windowData.temperature || {};
+  const wind = windowData.wind || {};
+  const pressure = windowData.pressure || {};
+  const condensation = windowData.condensation || {};
+
+  setText("window-label", "Last 12 hours");
+
+  setText(
+    "window-min-temp",
+    formatExtreme(
+      temperature.min_c,
+      " °C",
+      temperature.min_time_local
+    )
+  );
+
+  setText(
+    "window-max-temp",
+    formatExtreme(
+      temperature.max_c,
+      " °C",
+      temperature.max_time_local
+    )
+  );
+
+  setText(
+    "window-thermal-drop",
+    formatValue(temperature.thermal_drop_c, " °C")
+  );
+
+  setText(
+    "window-max-gust",
+    formatExtreme(
+      wind.max_gust_kmh,
+      " km/h",
+      wind.max_gust_time_local
+    )
+  );
+
+  setText("window-pressure-trend", pressure.trend || "n/a");
+
+  if (condensation.state) {
+    updateCondensationRisk(condensation);
+  }
+}
+
+function updateCondensationRisk(risk) {
+  setText("condensation-spread", formatValue(risk.spread_c, " °C"));
+  setText("condensation-current", risk.state || "UNKNOWN");
+
+  const states = ["LOW", "MODERATE", "HIGH", "CRITICAL"];
+
+  states.forEach((state) => {
+    const element = document.getElementById(
+      `condensation-risk-${state.toLowerCase()}`
+    );
+
+    if (!element) {
+      return;
+    }
+
+    element.classList.remove("active");
+
+    if (risk.state === state) {
+      element.classList.add("active");
+    }
+  });
+}
+
 function setText(elementId, value) {
   const element = document.getElementById(elementId);
 
@@ -140,13 +223,41 @@ function formatExtreme(value, unit, timestampLocal) {
   return `${value}${unit} at ${time}`;
 }
 
+function formatDateOnly(dateText) {
+  if (!dateText) {
+    return "n/a";
+  }
+
+  return dateText;
+}
+
+function formatTimeOnly(timeText) {
+  if (!timeText) {
+    return "n/a";
+  }
+
+  return timeText.slice(0, 5);
+}
+
+function formatUtcTimeOnly(timestampUtc) {
+  if (!timestampUtc) {
+    return "n/a";
+  }
+
+  const date = new Date(timestampUtc);
+
+  if (Number.isNaN(date.getTime())) {
+    return "n/a";
+  }
+
+  return date.toISOString().slice(11, 16);
+}
+
 function formatLocalTimeOnly(timestampLocal) {
   if (!timestampLocal) {
     return "";
   }
 
-  // Expected format from Weather Underground:
-  // "2026-05-25 19:40:18"
   const parts = timestampLocal.split(" ");
 
   if (parts.length < 2) {
@@ -164,11 +275,20 @@ function formatLastUpdate(timestamp) {
   const observedTime = new Date(timestamp);
   const now = new Date();
 
+  if (Number.isNaN(observedTime.getTime())) {
+    return "T+n/a";
+  }
+
   const diffMs = now - observedTime;
   const diffSeconds = Math.max(0, Math.floor(diffMs / 1000));
 
-  const minutes = Math.floor(diffSeconds / 60);
+  const hours = Math.floor(diffSeconds / 3600);
+  const minutes = Math.floor((diffSeconds % 3600) / 60);
   const seconds = diffSeconds % 60;
+
+  if (hours > 0) {
+    return `T+${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+  }
 
   return `T+${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
 }
