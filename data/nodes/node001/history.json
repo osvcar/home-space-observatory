@@ -922,5 +922,26 @@
     "uv_index": 0.0,
     "solar_radiation_wm2": 77.5,
     "qc_status": 1
+  },
+  {
+    "node": "NODE 001",
+    "name": "Atmospheric Monitoring Station",
+    "station_id": "IPIOTR18",
+    "updated_utc": "2026-05-30T08:06:57.845115+00:00",
+    "observed_utc": "2026-05-30T08:06:20Z",
+    "observed_local": "2026-05-30 10:06:20",
+    "temperature_c": 16,
+    "heat_index_c": 16,
+    "humidity_percent": 99,
+    "dewpoint_c": 16,
+    "pressure_hpa": 1000.34,
+    "wind_speed_kmh": 5,
+    "wind_gust_kmh": 10,
+    "wind_direction_deg": 188,
+    "precip_rate_mm": 0.0,
+    "precip_total_mm": 0.0,
+    "uv_index": 1.0,
+    "solar_radiation_wm2": 103.6,
+    "qc_status": 1
   }
 ]
