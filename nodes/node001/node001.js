@@ -8,7 +8,14 @@ async function loadNode001Telemetry() {
   try {
     await loadCurrentTelemetry();
     await loadDailySummary();
-    await loadObservationWindow();
+
+
+    try {
+      await loadObservationWindow();
+    } catch (error) {
+      console.warn("Observation window not available yet.");
+    }
+  
   } catch (error) {
     console.error("NODE 001 telemetry error:", error);
 
