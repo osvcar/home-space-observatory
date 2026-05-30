@@ -4,18 +4,19 @@
 
 const NODE001_DATA_BASE = "/data/nodes/node001";
 
+let latestObservationTime = null;
+
 async function loadNode001Telemetry() {
   try {
     await loadCurrentTelemetry();
     await loadDailySummary();
-
 
     try {
       await loadObservationWindow();
     } catch (error) {
       console.warn("Observation window not available yet.");
     }
-  
+
   } catch (error) {
     console.error("NODE 001 telemetry error:", error);
 
@@ -56,10 +57,8 @@ async function loadCurrentTelemetry() {
   setText("node-time-local", formatTimeOnly(data.node_time_local));
   setText("node-time-utc", formatUtcTimeOnly(data.observed_utc));
 
-  setText(
-    "node-last-update",
-    formatLastUpdate(data.observed_utc || data.updated_utc)
-  );
+  latestObservationTime = parseTimestamp(data.observed_utc || data.updated_utc);
+  updateLiveDataAge();
 
   if (data.condensation_risk) {
     updateCondensationRisk(data.condensation_risk);
@@ -200,6 +199,33 @@ function updateCondensationRisk(risk) {
   });
 }
 
+function updateLiveDataAge() {
+  if (!latestObservationTime) {
+    setText("node-last-update", "T+n/a");
+    return;
+  }
+
+  const now = new Date();
+  const diffMs = now.getTime() - latestObservationTime.getTime();
+  const diffSeconds = Math.max(0, Math.floor(diffMs / 1000));
+
+  setText("node-last-update", formatDuration(diffSeconds));
+}
+
+function parseTimestamp(timestamp) {
+  if (!timestamp) {
+    return null;
+  }
+
+  const parsed = new Date(timestamp);
+
+  if (Number.isNaN(parsed.getTime())) {
+    return null;
+  }
+
+  return parsed;
+}
+
 function setText(elementId, value) {
   const element = document.getElementById(elementId);
 
@@ -274,24 +300,10 @@ function formatLocalTimeOnly(timestampLocal) {
   return parts[1].slice(0, 5);
 }
 
-function formatLastUpdate(timestamp) {
-  if (!timestamp) {
-    return "T+n/a";
-  }
-
-  const observedTime = new Date(timestamp);
-  const now = new Date();
-
-  if (Number.isNaN(observedTime.getTime())) {
-    return "T+n/a";
-  }
-
-  const diffMs = now - observedTime;
-  const diffSeconds = Math.max(0, Math.floor(diffMs / 1000));
-
-  const hours = Math.floor(diffSeconds / 3600);
-  const minutes = Math.floor((diffSeconds % 3600) / 60);
-  const seconds = diffSeconds % 60;
+function formatDuration(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
   if (hours > 0) {
     return `T+${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
@@ -303,3 +315,4 @@ function formatLastUpdate(timestamp) {
 loadNode001Telemetry();
 
 setInterval(loadNode001Telemetry, 60000);
+setInterval(updateLiveDataAge, 1000);
