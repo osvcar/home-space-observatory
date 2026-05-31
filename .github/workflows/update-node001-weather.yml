@@ -3,7 +3,7 @@ name: Update NODE 001 telemetry
 on:
   schedule:
     - cron: "7,22,37,52 * * * *"
-
+    - cron: "12,27,42,57 * * * *"
   workflow_dispatch:
 
 permissions:
