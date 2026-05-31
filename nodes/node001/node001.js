@@ -1,41 +1,68 @@
 // NODE 001 — Atmospheric Monitoring Station
-// Reads public telemetry JSON files and updates the node page.
+// Frontend telemetry renderer
 // Author: Migus in collaboration with ChatGPT
 
+const NODE001_DATA_BASE = "/data/nodes/node001";
+
+// ======================================================================
+// INITIAL LOAD
+// ======================================================================
+
+loadNode001Telemetry();
+
+setInterval(
+  loadNode001Telemetry,
+  60000
+);
+
+// ======================================================================
+// MAIN LOADER
+// ======================================================================
+
 async function loadNode001Telemetry() {
+
   try {
+
     await loadCurrentTelemetry();
-    await loadObservationSummary();
-    await loadCalendarSummary();
+    await loadObservationWindow();
+    await loadDailySummary();
+    await loadLongTermSummary();
 
   } catch (error) {
 
-    console.error("NODE 001 telemetry error:", error);
+    console.error(
+      "NODE 001 telemetry error:",
+      error
+    );
 
-    const lastUpdateElement =
-      document.getElementById("node-last-update");
-
-    if (lastUpdateElement) {
-      lastUpdateElement.textContent = "DATA LINK ERROR";
-    }
+    setText(
+      "node-last-update",
+      "DATA LINK ERROR"
+    );
   }
 }
 
+// ======================================================================
+// CURRENT TELEMETRY
+// ======================================================================
+
 async function loadCurrentTelemetry() {
 
-  const response =
-    await fetch("../../data/nodes/node001/current.json");
+  const response = await fetch(
+    `${NODE001_DATA_BASE}/current.json`
+  );
 
   if (!response.ok) {
+
     throw new Error(
-      "Could not load NODE 001 current telemetry file."
+      "Could not load current telemetry."
     );
   }
 
   const data = await response.json();
 
   // ------------------------------------------------------------------
-  // LIVE TELEMETRY
+  // LIVE DATA
   // ------------------------------------------------------------------
 
   setText(
@@ -114,156 +141,108 @@ async function loadCurrentTelemetry() {
   // ------------------------------------------------------------------
 
   updateCondensationRisk(
-    data.temperature_c,
-    data.dewpoint_c
+    data.condensation_risk
   );
 }
 
-async function loadObservationSummary() {
+// ======================================================================
+// OBSERVATION WINDOW
+// ======================================================================
 
-  const response =
-    await fetch("../../data/nodes/node001/history.json");
+async function loadObservationWindow() {
+
+  const response = await fetch(
+    `${NODE001_DATA_BASE}/observation-window.json`
+  );
 
   if (!response.ok) {
+
     throw new Error(
-      "Could not load NODE 001 observation history."
+      "Could not load observation window."
     );
   }
 
-  const history = await response.json();
-
-  const now = new Date();
-
-  const last12h = history.filter((entry) => {
-
-    const entryDate =
-      new Date(entry.observed_utc);
-
-    return (
-      (now - entryDate) <= 12 * 60 * 60 * 1000
-    );
-  });
-
-  if (last12h.length === 0) {
-    return;
-  }
-
-  // ------------------------------------------------------------------
-  // TEMPERATURE
-  // ------------------------------------------------------------------
-
-  const temps =
-    last12h.map(e => e.temperature_c);
-
-  const minTemp = Math.min(...temps);
-  const maxTemp = Math.max(...temps);
-
-  const minEntry =
-    last12h.find(e => e.temperature_c === minTemp);
-
-  const maxEntry =
-    last12h.find(e => e.temperature_c === maxTemp);
+  const summary = await response.json();
 
   setText(
-    "obs-min-temp",
-    formatExtreme(
-      minTemp,
-      " °C",
-      minEntry.observed_local
-    )
+    "window-label",
+    `Last ${summary.window_hours} hours`
   );
 
-  setText(
-    "obs-max-temp",
-    formatExtreme(
-      maxTemp,
-      " °C",
-      maxEntry.observed_local
-    )
-  );
-
-  setText(
-    "obs-temp-drop",
-    formatValue(
-      (maxTemp - minTemp).toFixed(1),
-      " °C"
-    )
-  );
-
-  // ------------------------------------------------------------------
-  // WIND
-  // ------------------------------------------------------------------
-
-  const gusts =
-    last12h.map(e => e.wind_gust_kmh || 0);
-
-  const maxGust = Math.max(...gusts);
-
-  const gustEntry =
-    last12h.find(
-      e => (e.wind_gust_kmh || 0) === maxGust
-    );
-
-  setText(
-    "obs-max-gust",
-    formatExtreme(
-      maxGust,
-      " km/h",
-      gustEntry.observed_local
-    )
-  );
-
-  // ------------------------------------------------------------------
-  // PRESSURE
-  // ------------------------------------------------------------------
-
-  const pressures =
-    last12h.map(e => e.pressure_hpa);
-
-  const minPressure =
-    Math.min(...pressures);
-
-  const maxPressure =
-    Math.max(...pressures);
-
-  setText(
-    "obs-pressure-range",
-    `${minPressure} → ${maxPressure} hPa`
-  );
-
-  const pressureTrend =
-    pressures[pressures.length - 1] -
-    pressures[0];
-
-  let trendText = "Stable";
-
-  if (pressureTrend > 1) {
-    trendText = "Rising";
-  }
-
-  if (pressureTrend < -1) {
-    trendText = "Falling";
-  }
-
-  setText(
-    "obs-pressure-trend",
-    trendText
+  fillSummaryBlock(
+    summary,
+    "window"
   );
 }
 
-async function loadCalendarSummary() {
+// ======================================================================
+// DAILY SUMMARY
+// ======================================================================
 
-  const response =
-    await fetch("../../data/nodes/node001/daily-summary.json");
+async function loadDailySummary() {
+
+  const response = await fetch(
+    `${NODE001_DATA_BASE}/daily-summary.json`
+  );
 
   if (!response.ok) {
+
     throw new Error(
-      "Could not load NODE 001 daily summary file."
+      "Could not load daily summary."
     );
   }
 
-  const summary =
-    await response.json();
+  const summary = await response.json();
+
+  fillSummaryBlock(
+    summary,
+    "daily"
+  );
+}
+
+// ======================================================================
+// LONG TERM SUMMARY
+// ======================================================================
+
+async function loadLongTermSummary() {
+
+  const response = await fetch(
+    `${NODE001_DATA_BASE}/long-term-summary.json`
+  );
+
+  if (!response.ok) {
+
+    throw new Error(
+      "Could not load long-term summary."
+    );
+  }
+
+  const summary = await response.json();
+
+  fillLongTermBlock(
+    summary.month,
+    "month"
+  );
+
+  fillLongTermBlock(
+    summary.year,
+    "year"
+  );
+
+  fillLongTermBlock(
+    summary.since_launch,
+    "launch"
+  );
+}
+
+// ======================================================================
+// GENERIC SUMMARY BLOCK
+// ======================================================================
+
+function fillSummaryBlock(
+  summary,
+  prefix
+) {
 
   const temperature =
     summary.temperature || {};
@@ -277,12 +256,8 @@ async function loadCalendarSummary() {
   const uv =
     summary.uv || {};
 
-  // ------------------------------------------------------------------
-  // DAILY THERMAL RANGE
-  // ------------------------------------------------------------------
-
   setText(
-    "summary-min-temp",
+    `${prefix}-min-temp`,
     formatExtreme(
       temperature.min_c,
       " °C",
@@ -291,7 +266,7 @@ async function loadCalendarSummary() {
   );
 
   setText(
-    "summary-max-temp",
+    `${prefix}-max-temp`,
     formatExtreme(
       temperature.max_c,
       " °C",
@@ -300,19 +275,23 @@ async function loadCalendarSummary() {
   );
 
   setText(
-    "summary-delta-temp",
+    `${prefix}-delta-temp`,
     formatValue(
       temperature.delta_c,
       " °C"
     )
   );
 
-  // ------------------------------------------------------------------
-  // DAILY WIND
-  // ------------------------------------------------------------------
+  setText(
+    `${prefix}-thermal-drop`,
+    formatValue(
+      temperature.thermal_drop_c,
+      " °C"
+    )
+  );
 
   setText(
-    "summary-max-gust",
+    `${prefix}-max-gust`,
     formatExtreme(
       wind.max_gust_kmh,
       " km/h",
@@ -320,34 +299,33 @@ async function loadCalendarSummary() {
     )
   );
 
-  // ------------------------------------------------------------------
-  // DAILY PRESSURE
-  // ------------------------------------------------------------------
-
   if (
     pressure.min_hpa !== null &&
-    pressure.max_hpa !== null
+    pressure.max_hpa !== null &&
+    pressure.min_hpa !== undefined &&
+    pressure.max_hpa !== undefined
   ) {
 
     setText(
-      "summary-pressure",
+      `${prefix}-pressure`,
       `${pressure.min_hpa} → ${pressure.max_hpa} hPa`
     );
 
   } else {
 
     setText(
-      "summary-pressure",
-      "n/a"
+      `${prefix}-pressure`,
+      "--"
     );
   }
 
-  // ------------------------------------------------------------------
-  // DAILY UV
-  // ------------------------------------------------------------------
+  setText(
+    `${prefix}-pressure-trend`,
+    pressure.trend || "--"
+  );
 
   setText(
-    "summary-max-uv",
+    `${prefix}-max-uv`,
     formatExtreme(
       uv.max_index,
       "",
@@ -357,61 +335,101 @@ async function loadCalendarSummary() {
 }
 
 // ======================================================================
+// LONG TERM BLOCK
+// ======================================================================
+
+function fillLongTermBlock(
+  summary,
+  prefix
+) {
+
+  const temperature =
+    summary.temperature || {};
+
+  setText(
+    `${prefix}-max-temp`,
+    formatExtreme(
+      temperature.max_c,
+      " °C",
+      temperature.max_time_local
+    )
+  );
+
+  setText(
+    `${prefix}-min-temp`,
+    formatExtreme(
+      temperature.min_c,
+      " °C",
+      temperature.min_time_local
+    )
+  );
+
+  setText(
+    `${prefix}-delta-temp`,
+    formatValue(
+      temperature.delta_c,
+      " °C"
+    )
+  );
+}
+
+// ======================================================================
 // CONDENSATION RISK
 // ======================================================================
 
 function updateCondensationRisk(
-  temperature,
-  dewpoint
+  riskData
 ) {
 
-  if (
-    temperature === null ||
-    dewpoint === null
-  ) {
+  if (!riskData) {
     return;
   }
 
-  const spread =
-    temperature - dewpoint;
-
   setText(
     "condensation-spread",
-    `${spread.toFixed(1)} °C`
+    formatValue(
+      riskData.spread_c,
+      " °C"
+    )
   );
-
-  let risk = "LOW";
-
-  if (spread <= 6) {
-    risk = "MODERATE";
-  }
-
-  if (spread <= 3) {
-    risk = "HIGH";
-  }
-
-  if (spread <= 1) {
-    risk = "CRITICAL";
-  }
 
   setText(
-    "condensation-state",
-    risk
+    "condensation-current",
+    riskData.state || "--"
   );
 
-  document
-    .querySelectorAll(".risk-level")
-    .forEach(el => {
-      el.classList.remove("risk-active");
-    });
+  const ids = [
+    "low",
+    "moderate",
+    "high",
+    "critical"
+  ];
 
-  const active =
-    document.getElementById(
-      `risk-${risk.toLowerCase()}`
+  ids.forEach(level => {
+
+    const element =
+      document.getElementById(
+        `condensation-risk-${level}`
+      );
+
+    if (element) {
+      element.classList.remove(
+        "risk-active"
+      );
+    }
+  });
+
+  const activeId =
+    `condensation-risk-${riskData.state.toLowerCase()}`;
+
+  const activeElement =
+    document.getElementById(activeId);
+
+  if (activeElement) {
+
+    activeElement.classList.add(
+      "risk-active"
     );
-
-  if (active) {
-    active.classList.add("risk-active");
   }
 }
 
@@ -419,17 +437,25 @@ function updateCondensationRisk(
 // GENERIC HELPERS
 // ======================================================================
 
-function setText(elementId, value) {
+function setText(
+  elementId,
+  value
+) {
 
   const element =
     document.getElementById(elementId);
 
   if (element) {
-    element.textContent = value;
+
+    element.textContent =
+      value;
   }
 }
 
-function formatValue(value, unit) {
+function formatValue(
+  value,
+  unit
+) {
 
   if (
     value === null ||
@@ -457,9 +483,12 @@ function formatExtreme(
   }
 
   const time =
-    formatLocalTimeOnly(timestampLocal);
+    formatLocalTimeOnly(
+      timestampLocal
+    );
 
   if (!time) {
+
     return `${value}${unit}`;
   }
 
@@ -550,14 +579,3 @@ function formatLastUpdate(
     `${String(seconds).padStart(2, "0")}`
   );
 }
-
-// ======================================================================
-// INITIAL LOAD
-// ======================================================================
-
-loadNode001Telemetry();
-
-setInterval(
-  loadNode001Telemetry,
-  60000
-);
