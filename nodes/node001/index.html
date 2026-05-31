@@ -14,12 +14,8 @@
 
   <main class="mission-page">
 
-    <!-- HERO / HEADER -->
-
     <section class="mission-hero">
-
       <p class="mission-kicker">NODE 001</p>
-
       <h1>Atmospheric Monitoring Station</h1>
 
       <p class="mission-summary">
@@ -28,202 +24,157 @@
       </p>
 
       <div class="mission-meta">
-
-        <div class="meta-pill">
-          <span class="label">Type</span>
-          <span class="value">Atmospheric node</span>
-        </div>
-
-        <div class="meta-pill">
-          <span class="label">Status</span>
-          <span class="value">Operational</span>
-        </div>
-
-        <div class="meta-pill">
-          <span class="label">Data stream</span>
-          <span class="value">Active</span>
-        </div>
-
-        <div class="meta-pill">
-          <span class="label">Location</span>
-          <span class="value">Classified</span>
-        </div>
-
+        <div class="meta-pill"><span class="label">Status</span><span class="value">Operational</span></div>
+        <div class="meta-pill"><span class="label">Local date</span><span class="value" id="node-date-local">--</span></div>
+        <div class="meta-pill"><span class="label">Local time</span><span class="value" id="node-time-local">--</span></div>
+        <div class="meta-pill"><span class="label">UTC</span><span class="value" id="node-time-utc">--</span></div>
+        <div class="meta-pill"><span class="label">Data age</span><span class="value" id="node-last-update">T+--:--</span></div>
       </div>
-
     </section>
 
-    <!-- LIVE CONDITIONS -->
-
     <section class="mission-section">
-
       <h2>Live atmospheric telemetry</h2>
 
       <dl class="data-grid">
-
-        <div class="data-item">
-          <dt>Temperature</dt>
-          <dd id="node-temp">-- °C</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Humidity</dt>
-          <dd id="node-humidity">-- %</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Dew point</dt>
-          <dd id="node-dewpoint">-- °C</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Pressure</dt>
-          <dd id="node-pressure">-- hPa</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Wind speed</dt>
-          <dd id="node-wind-speed">-- km/h</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Wind gust</dt>
-          <dd id="node-wind-gust">-- km/h</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Wind direction</dt>
-          <dd id="node-wind-dir">-- °</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Rain total</dt>
-          <dd id="node-rain">-- mm</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>UV index</dt>
-          <dd id="node-uv">--</dd>
-        </div>
-
-        <div class="data-item">
-          <dt>Last update</dt>
-          <dd id="node-last-update">T+--:--</dd>
-        </div>
-
+        <div class="data-item"><dt>Temperature</dt><dd id="node-temp">-- °C</dd></div>
+        <div class="data-item"><dt>Humidity</dt><dd id="node-humidity">-- %</dd></div>
+        <div class="data-item"><dt>Dew point</dt><dd id="node-dewpoint">-- °C</dd></div>
+        <div class="data-item"><dt>Pressure</dt><dd id="node-pressure">-- hPa</dd></div>
+        <div class="data-item"><dt>Wind speed</dt><dd id="node-wind-speed">-- km/h</dd></div>
+        <div class="data-item"><dt>Wind gust</dt><dd id="node-wind-gust">-- km/h</dd></div>
+        <div class="data-item"><dt>Wind direction</dt><dd id="node-wind-dir">-- °</dd></div>
+        <div class="data-item"><dt>Rain total</dt><dd id="node-rain">-- mm</dd></div>
+        <div class="data-item"><dt>UV index</dt><dd id="node-uv">--</dd></div>
       </dl>
-
     </section>
 
-    <!-- DAILY SUMMARY -->
+    <section class="mission-section">
+      <h2>Condensation risk</h2>
+
+      <p>
+        <strong>Temperature / dew point spread:</strong>
+        <span id="condensation-spread">--</span>
+      </p>
+
+      <p>
+        <strong>Current state:</strong>
+        <span id="condensation-current">--</span>
+      </p>
+
+      <div class="mission-meta">
+        <div class="meta-pill" id="condensation-risk-low">
+          <span class="label">Risk</span><span class="value">LOW</span>
+        </div>
+
+        <div class="meta-pill" id="condensation-risk-moderate">
+          <span class="label">Risk</span><span class="value">MODERATE</span>
+        </div>
+
+        <div class="meta-pill" id="condensation-risk-high">
+          <span class="label">Risk</span><span class="value">HIGH</span>
+        </div>
+
+        <div class="meta-pill" id="condensation-risk-critical">
+          <span class="label">Risk</span><span class="value">CRITICAL</span>
+        </div>
+      </div>
+    </section>
 
     <section class="mission-section">
-
-      <h2>Daily atmospheric summary</h2>
+      <h2>Observation support window</h2>
+      <p>
+        Operational atmospheric summary for the current observation cycle:
+        <strong id="window-label">Last 12 hours</strong>.
+      </p>
 
       <div class="info-grid">
-
         <div class="info-card">
-
-          <h3>Thermal range</h3>
-
-          <p>
-            <strong>Min temp:</strong>
-            <span id="summary-min-temp">--</span>
-          </p>
-
-          <p>
-            <strong>Max temp:</strong>
-            <span id="summary-max-temp">--</span>
-          </p>
-
-          <p>
-            <strong>Daily delta:</strong>
-            <span id="summary-delta-temp">--</span>
-          </p>
-
+          <h3>Thermal behaviour</h3>
+          <p><strong>Min temp:</strong> <span id="window-min-temp">--</span></p>
+          <p><strong>Max temp:</strong> <span id="window-max-temp">--</span></p>
+          <p><strong>Thermal drop:</strong> <span id="window-thermal-drop">--</span></p>
         </div>
 
         <div class="info-card">
-
           <h3>Operational conditions</h3>
-
-          <p>
-            <strong>Max gust:</strong>
-            <span id="summary-max-gust">--</span>
-          </p>
-
-          <p>
-            <strong>Pressure range:</strong>
-            <span id="summary-pressure">--</span>
-          </p>
-
-          <p>
-            <strong>Max UV:</strong>
-            <span id="summary-max-uv">--</span>
-          </p>
-
+          <p><strong>Max gust:</strong> <span id="window-max-gust">--</span></p>
+          <p><strong>Pressure range:</strong> <span id="window-pressure">--</span></p>
+          <p><strong>Pressure trend:</strong> <span id="window-pressure-trend">--</span></p>
         </div>
-
       </div>
-
     </section>
 
-    <!-- NODE ROLE -->
+    <section class="mission-section">
+      <h2>Calendar day summary</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Thermal range</h3>
+          <p><strong>Min temp:</strong> <span id="daily-min-temp">--</span></p>
+          <p><strong>Max temp:</strong> <span id="daily-max-temp">--</span></p>
+          <p><strong>Daily delta:</strong> <span id="daily-delta-temp">--</span></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Daily conditions</h3>
+          <p><strong>Max gust:</strong> <span id="daily-max-gust">--</span></p>
+          <p><strong>Pressure range:</strong> <span id="daily-pressure">--</span></p>
+          <p><strong>Max UV:</strong> <span id="daily-max-uv">--</span></p>
+        </div>
+      </div>
+    </section>
 
     <section class="mission-section">
+      <h2>Long-term records</h2>
 
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Current month</h3>
+          <p><strong>Max temp:</strong> <span id="month-max-temp">--</span></p>
+          <p><strong>Min temp:</strong> <span id="month-min-temp">--</span></p>
+          <p><strong>Thermal range:</strong> <span id="month-delta-temp">--</span></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Current year</h3>
+          <p><strong>Max temp:</strong> <span id="year-max-temp">--</span></p>
+          <p><strong>Min temp:</strong> <span id="year-min-temp">--</span></p>
+          <p><strong>Thermal range:</strong> <span id="year-delta-temp">--</span></p>
+        </div>
+
+        <div class="info-card">
+          <h3>Since NODE 001 launch</h3>
+          <p><strong>Max temp:</strong> <span id="launch-max-temp">--</span></p>
+          <p><strong>Min temp:</strong> <span id="launch-min-temp">--</span></p>
+          <p><strong>Thermal range:</strong> <span id="launch-delta-temp">--</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission-section">
       <h2>Node role</h2>
 
       <p>
-        NODE 001 acts as the primary environmental reference point
-        for the Home Space Observatory.
-        It records local atmospheric conditions and supports future
+        NODE 001 acts as the primary environmental reference point for the Home Space
+        Observatory. It records local atmospheric conditions and supports future
         observation readiness logic.
       </p>
 
       <p>
-        The node provides a permanent stream of local weather data including
-        temperature, humidity, pressure, wind, precipitation and UV index.
+        This node supports future autonomous protection logic including
+        condensation risk estimation, dome safety decisions and observation
+        readiness classification.
       </p>
-
     </section>
 
-    <!-- FUTURE INTEGRATION -->
-
-    <section class="mission-section">
-
-      <h2>Future integration</h2>
-
-      <p>
-        The data from this node will support automatic observation
-        status indicators such as READY, DEGRADED or BLOCKED,
-        based on wind, humidity, precipitation and sky-operation constraints.
-      </p>
-
-      <p>
-        Future autonomous protection logic will include condensation risk
-        estimation using temperature and dew point delta calculations.
-      </p>
-
-    </section>
-
-    <a href="../../index.html" class="back-link">
-      ← Back to main page
-    </a>
+    <a href="../../index.html" class="back-link">← Back to main page</a>
 
   </main>
 
   <footer class="site-footer">
-
     <div>Home Space Observatory</div>
-
-    <div>
-      Built for mission growth, not for blogging.
-    </div>
-
+    <div>Built for mission growth, not for blogging.</div>
     <div class="credit">&nbsp;</div>
-
   </footer>
 
   <script src="node001.js?v=20260530"></script>

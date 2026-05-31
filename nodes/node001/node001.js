@@ -1,5 +1,5 @@
 // NODE 001 — Atmospheric Monitoring Station
-// Reads public telemetry JSON files and updates the node page.
+// Observatory telemetry frontend.
 // Author: Migus in collaboration with ChatGPT
 
 const NODE001_DATA_BASE = "/data/nodes/node001";
@@ -7,20 +7,20 @@ const NODE001_DATA_BASE = "/data/nodes/node001";
 let latestObservationTime = null;
 
 async function loadNode001Telemetry() {
+
   try {
+
     await loadCurrentTelemetry();
     await loadDailySummary();
-
-    try {
-      await loadObservationWindow();
-    } catch (error) {
-      console.warn("Observation window not available yet.");
-    }
+    await loadObservationWindow();
+    await loadLongTermSummary();
 
   } catch (error) {
+
     console.error("NODE 001 telemetry error:", error);
 
-    const lastUpdateElement = document.getElementById("node-last-update");
+    const lastUpdateElement =
+      document.getElementById("node-last-update");
 
     if (lastUpdateElement) {
       lastUpdateElement.textContent = "DATA LINK ERROR";
@@ -29,7 +29,9 @@ async function loadNode001Telemetry() {
 }
 
 async function fetchJson(path) {
-  const response = await fetch(`${path}?ts=${Date.now()}`);
+
+  const response =
+    await fetch(`${path}?ts=${Date.now()}`);
 
   if (!response.ok) {
     throw new Error(`Could not load: ${path}`);
@@ -39,25 +41,49 @@ async function fetchJson(path) {
 }
 
 async function loadCurrentTelemetry() {
-  const data = await fetchJson(`${NODE001_DATA_BASE}/current.json`);
 
-  setText("node-temp", formatValue(data.temperature_c, " °C"));
-  setText("node-humidity", formatValue(data.humidity_percent, " %"));
-  setText("node-dewpoint", formatValue(data.dewpoint_c, " °C"));
-  setText("node-pressure", formatValue(data.pressure_hpa, " hPa"));
+  const data =
+    await fetchJson(`${NODE001_DATA_BASE}/current.json`);
 
-  setText("node-wind-speed", formatValue(data.wind_speed_kmh, " km/h"));
-  setText("node-wind-gust", formatValue(data.wind_gust_kmh, " km/h"));
-  setText("node-wind-dir", formatValue(data.wind_direction_deg, " °"));
+  setText("node-temp",
+    formatValue(data.temperature_c, " °C"));
 
-  setText("node-rain", formatValue(data.precip_total_mm, " mm"));
-  setText("node-uv", formatValue(data.uv_index, ""));
+  setText("node-humidity",
+    formatValue(data.humidity_percent, " %"));
 
-  setText("node-date-local", formatDateOnly(data.node_date_local));
-  setText("node-time-local", formatTimeOnly(data.node_time_local));
-  setText("node-time-utc", formatUtcTimeOnly(data.observed_utc));
+  setText("node-dewpoint",
+    formatValue(data.dewpoint_c, " °C"));
 
-  latestObservationTime = parseTimestamp(data.observed_utc || data.updated_utc);
+  setText("node-pressure",
+    formatValue(data.pressure_hpa, " hPa"));
+
+  setText("node-wind-speed",
+    formatValue(data.wind_speed_kmh, " km/h"));
+
+  setText("node-wind-gust",
+    formatValue(data.wind_gust_kmh, " km/h"));
+
+  setText("node-wind-dir",
+    formatValue(data.wind_direction_deg, " °"));
+
+  setText("node-rain",
+    formatValue(data.precip_total_mm, " mm"));
+
+  setText("node-uv",
+    formatValue(data.uv_index, ""));
+
+  setText("node-date-local",
+    formatDateOnly(data.node_date_local));
+
+  setText("node-time-local",
+    formatTimeOnly(data.node_time_local));
+
+  setText("node-time-utc",
+    formatUtcTimeOnly(data.observed_utc));
+
+  latestObservationTime =
+    parseTimestamp(data.observed_utc || data.updated_utc);
+
   updateLiveDataAge();
 
   if (data.condensation_risk) {
@@ -66,17 +92,52 @@ async function loadCurrentTelemetry() {
 }
 
 async function loadDailySummary() {
-  const summary = await fetchJson(`${NODE001_DATA_BASE}/daily-summary.json`);
+
+  const summary =
+    await fetchJson(`${NODE001_DATA_BASE}/daily-summary.json`);
+
+  fillSummaryBlock(
+    "daily",
+    summary
+  );
+}
+
+async function loadObservationWindow() {
+
+  const summary =
+    await fetchJson(`${NODE001_DATA_BASE}/observation-window.json`);
+
+  fillSummaryBlock(
+    "window",
+    summary
+  );
+
+  setText("window-label", "Last 12 hours");
+
+  if (summary.condensation) {
+    updateCondensationRisk(summary.condensation);
+  }
+}
+
+async function loadLongTermSummary() {
+
+  const summary =
+    await fetchJson(`${NODE001_DATA_BASE}/long-term-summary.json`);
+
+  fillLongTermBlock("month", summary.month);
+  fillLongTermBlock("year", summary.year);
+  fillLongTermBlock("launch", summary.since_launch);
+}
+
+function fillSummaryBlock(prefix, summary) {
 
   const temperature = summary.temperature || {};
   const wind = summary.wind || {};
   const pressure = summary.pressure || {};
   const uv = summary.uv || {};
 
-  setText("summary-date-local", formatDateOnly(summary.date_local));
-
   setText(
-    "summary-min-temp",
+    `${prefix}-min-temp`,
     formatExtreme(
       temperature.min_c,
       " °C",
@@ -85,7 +146,7 @@ async function loadDailySummary() {
   );
 
   setText(
-    "summary-max-temp",
+    `${prefix}-max-temp`,
     formatExtreme(
       temperature.max_c,
       " °C",
@@ -94,12 +155,23 @@ async function loadDailySummary() {
   );
 
   setText(
-    "summary-delta-temp",
-    formatValue(temperature.delta_c, " °C")
+    `${prefix}-delta-temp`,
+    formatValue(
+      temperature.delta_c,
+      " °C"
+    )
   );
 
   setText(
-    "summary-max-gust",
+    `${prefix}-thermal-drop`,
+    formatValue(
+      temperature.thermal_drop_c,
+      " °C"
+    )
+  );
+
+  setText(
+    `${prefix}-max-gust`,
     formatExtreme(
       wind.max_gust_kmh,
       " km/h",
@@ -107,18 +179,30 @@ async function loadDailySummary() {
     )
   );
 
-  if (pressure.min_hpa !== null && pressure.min_hpa !== undefined &&
-      pressure.max_hpa !== null && pressure.max_hpa !== undefined) {
+  if (
+    pressure.min_hpa !== null &&
+    pressure.max_hpa !== null &&
+    pressure.min_hpa !== undefined &&
+    pressure.max_hpa !== undefined
+  ) {
+
     setText(
-      "summary-pressure",
+      `${prefix}-pressure`,
       `${pressure.min_hpa} → ${pressure.max_hpa} hPa`
     );
+
   } else {
-    setText("summary-pressure", "n/a");
+
+    setText(`${prefix}-pressure`, "n/a");
   }
 
   setText(
-    "summary-max-uv",
+    `${prefix}-pressure-trend`,
+    pressure.trend || "n/a"
+  );
+
+  setText(
+    `${prefix}-max-uv`,
     formatExtreme(
       uv.max_index,
       "",
@@ -127,27 +211,16 @@ async function loadDailySummary() {
   );
 }
 
-async function loadObservationWindow() {
-  const windowData = await fetchJson(`${NODE001_DATA_BASE}/observation-window.json`);
+function fillLongTermBlock(prefix, summary) {
 
-  const temperature = windowData.temperature || {};
-  const wind = windowData.wind || {};
-  const pressure = windowData.pressure || {};
-  const condensation = windowData.condensation || {};
+  if (!summary) {
+    return;
+  }
 
-  setText("window-label", "Last 12 hours");
+  const temperature = summary.temperature || {};
 
   setText(
-    "window-min-temp",
-    formatExtreme(
-      temperature.min_c,
-      " °C",
-      temperature.min_time_local
-    )
-  );
-
-  setText(
-    "window-max-temp",
+    `${prefix}-max-temp`,
     formatExtreme(
       temperature.max_c,
       " °C",
@@ -156,36 +229,48 @@ async function loadObservationWindow() {
   );
 
   setText(
-    "window-thermal-drop",
-    formatValue(temperature.thermal_drop_c, " °C")
-  );
-
-  setText(
-    "window-max-gust",
+    `${prefix}-min-temp`,
     formatExtreme(
-      wind.max_gust_kmh,
-      " km/h",
-      wind.max_gust_time_local
+      temperature.min_c,
+      " °C",
+      temperature.min_time_local
     )
   );
 
-  setText("window-pressure-trend", pressure.trend || "n/a");
-
-  if (condensation.state) {
-    updateCondensationRisk(condensation);
-  }
+  setText(
+    `${prefix}-delta-temp`,
+    formatValue(
+      temperature.delta_c,
+      " °C"
+    )
+  );
 }
 
 function updateCondensationRisk(risk) {
-  setText("condensation-spread", formatValue(risk.spread_c, " °C"));
-  setText("condensation-current", risk.state || "UNKNOWN");
 
-  const states = ["LOW", "MODERATE", "HIGH", "CRITICAL"];
+  setText(
+    "condensation-spread",
+    formatValue(risk.spread_c, " °C")
+  );
+
+  setText(
+    "condensation-current",
+    risk.state || "UNKNOWN"
+  );
+
+  const states = [
+    "LOW",
+    "MODERATE",
+    "HIGH",
+    "CRITICAL"
+  ];
 
   states.forEach((state) => {
-    const element = document.getElementById(
-      `condensation-risk-${state.toLowerCase()}`
-    );
+
+    const element =
+      document.getElementById(
+        `condensation-risk-${state.toLowerCase()}`
+      );
 
     if (!element) {
       return;
@@ -200,19 +285,29 @@ function updateCondensationRisk(risk) {
 }
 
 function updateLiveDataAge() {
+
   if (!latestObservationTime) {
+
     setText("node-last-update", "T+n/a");
     return;
   }
 
   const now = new Date();
-  const diffMs = now.getTime() - latestObservationTime.getTime();
-  const diffSeconds = Math.max(0, Math.floor(diffMs / 1000));
 
-  setText("node-last-update", formatDuration(diffSeconds));
+  const diffMs =
+    now.getTime() - latestObservationTime.getTime();
+
+  const diffSeconds =
+    Math.max(0, Math.floor(diffMs / 1000));
+
+  setText(
+    "node-last-update",
+    formatDuration(diffSeconds)
+  );
 }
 
 function parseTimestamp(timestamp) {
+
   if (!timestamp) {
     return null;
   }
@@ -227,7 +322,9 @@ function parseTimestamp(timestamp) {
 }
 
 function setText(elementId, value) {
-  const element = document.getElementById(elementId);
+
+  const element =
+    document.getElementById(elementId);
 
   if (element) {
     element.textContent = value;
@@ -235,7 +332,12 @@ function setText(elementId, value) {
 }
 
 function formatValue(value, unit) {
-  if (value === null || value === undefined || value === "") {
+
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
     return "n/a";
   }
 
@@ -243,11 +345,17 @@ function formatValue(value, unit) {
 }
 
 function formatExtreme(value, unit, timestampLocal) {
-  if (value === null || value === undefined || value === "") {
+
+  if (
+    value === null ||
+    value === undefined ||
+    value === ""
+  ) {
     return "n/a";
   }
 
-  const time = formatLocalTimeOnly(timestampLocal);
+  const time =
+    formatLocalTimeOnly(timestampLocal);
 
   if (!time) {
     return `${value}${unit}`;
@@ -257,6 +365,7 @@ function formatExtreme(value, unit, timestampLocal) {
 }
 
 function formatDateOnly(dateText) {
+
   if (!dateText) {
     return "n/a";
   }
@@ -265,6 +374,7 @@ function formatDateOnly(dateText) {
 }
 
 function formatTimeOnly(timeText) {
+
   if (!timeText) {
     return "n/a";
   }
@@ -273,6 +383,7 @@ function formatTimeOnly(timeText) {
 }
 
 function formatUtcTimeOnly(timestampUtc) {
+
   if (!timestampUtc) {
     return "n/a";
   }
@@ -287,6 +398,7 @@ function formatUtcTimeOnly(timestampUtc) {
 }
 
 function formatLocalTimeOnly(timestampLocal) {
+
   if (!timestampLocal) {
     return "";
   }
@@ -301,11 +413,18 @@ function formatLocalTimeOnly(timestampLocal) {
 }
 
 function formatDuration(totalSeconds) {
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+
+  const hours =
+    Math.floor(totalSeconds / 3600);
+
+  const minutes =
+    Math.floor((totalSeconds % 3600) / 60);
+
+  const seconds =
+    totalSeconds % 60;
 
   if (hours > 0) {
+
     return `T+${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
   }
 
