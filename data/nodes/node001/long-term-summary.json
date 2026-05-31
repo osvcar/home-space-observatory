@@ -2,44 +2,44 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-05-31T21:41:38.200830+00:00",
+  "updated_utc": "2026-05-31T22:30:26.357748+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 72,
+    "records": 1,
     "temperature": {
-      "min_c": 7,
-      "min_time_local": "2026-05-29 00:52:43",
-      "max_c": 28,
-      "max_time_local": "2026-05-26 15:38:43",
-      "delta_c": 21,
-      "thermal_drop_c": 13
+      "min_c": 14,
+      "min_time_local": "2026-06-01 00:29:52",
+      "max_c": 14,
+      "max_time_local": "2026-06-01 00:29:52",
+      "delta_c": 0,
+      "thermal_drop_c": 0
     },
     "wind": {
-      "max_gust_kmh": 22,
-      "max_gust_time_local": "2026-05-27 12:42:24"
+      "max_gust_kmh": 0,
+      "max_gust_time_local": "2026-06-01 00:29:52"
     },
     "pressure": {
-      "min_hpa": 996.61,
-      "min_time_local": "2026-05-31 20:39:27",
-      "max_hpa": 1013.88,
-      "max_time_local": "2026-05-25 19:40:18",
-      "trend": "FALLING"
+      "min_hpa": 996.95,
+      "min_time_local": "2026-06-01 00:29:52",
+      "max_hpa": 996.95,
+      "max_time_local": "2026-06-01 00:29:52",
+      "trend": "STABLE"
     },
     "uv": {
-      "max_index": 9.0,
-      "max_time_local": "2026-05-28 14:04:17"
+      "max_index": 0.0,
+      "max_time_local": "2026-06-01 00:29:52"
     }
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 72,
+    "records": 73,
     "temperature": {
       "min_c": 7,
       "min_time_local": "2026-05-29 00:52:43",
       "max_c": 28,
       "max_time_local": "2026-05-26 15:38:43",
       "delta_c": 21,
-      "thermal_drop_c": 13
+      "thermal_drop_c": 14
     },
     "wind": {
       "max_gust_kmh": 22,
@@ -59,14 +59,14 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 4,
+    "records": 5,
     "temperature": {
-      "min_c": 15,
-      "min_time_local": "2026-05-31 22:30:57",
+      "min_c": 14,
+      "min_time_local": "2026-06-01 00:29:52",
       "max_c": 15,
       "max_time_local": "2026-05-31 22:30:57",
-      "delta_c": 0,
-      "thermal_drop_c": 0
+      "delta_c": 1,
+      "thermal_drop_c": 1
     },
     "wind": {
       "max_gust_kmh": 1,
