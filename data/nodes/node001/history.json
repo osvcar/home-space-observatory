@@ -2581,5 +2581,38 @@
         "CRITICAL"
       ]
     }
+  },
+  {
+    "node": "NODE 001",
+    "name": "Atmospheric Monitoring Station",
+    "station_id": "IPIOTR18",
+    "updated_utc": "2026-06-03T05:23:48.889191+00:00",
+    "observed_utc": "2026-06-03T05:23:41Z",
+    "observed_local": "2026-06-03 07:23:41",
+    "node_date_local": "2026-06-03",
+    "node_time_local": "07:23:41",
+    "temperature_c": 19,
+    "heat_index_c": 19,
+    "humidity_percent": 99,
+    "dewpoint_c": 18,
+    "pressure_hpa": 992.89,
+    "wind_speed_kmh": 6,
+    "wind_gust_kmh": 10,
+    "wind_direction_deg": 167,
+    "precip_rate_mm": 0.0,
+    "precip_total_mm": 0.0,
+    "uv_index": 1.0,
+    "solar_radiation_wm2": 87.5,
+    "qc_status": 1,
+    "condensation_risk": {
+      "spread_c": 1,
+      "state": "HIGH",
+      "states": [
+        "LOW",
+        "MODERATE",
+        "HIGH",
+        "CRITICAL"
+      ]
+    }
   }
 ]
