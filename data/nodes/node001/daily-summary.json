@@ -1,31 +1,31 @@
 {
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
-  "date_local": "2026-06-03",
-  "updated_utc": "2026-06-03T19:05:28.033340+00:00",
+  "date_local": "2026-06-04",
+  "updated_utc": "2026-06-03T22:04:19.765221+00:00",
   "label": "CALENDAR_DAY",
-  "records": 12,
+  "records": 1,
   "temperature": {
-    "min_c": 16,
-    "min_time_local": "2026-06-03 02:06:01",
-    "max_c": 25,
-    "max_time_local": "2026-06-03 12:12:55",
-    "delta_c": 9,
-    "thermal_drop_c": 9
+    "min_c": 15,
+    "min_time_local": "2026-06-04 00:03:32",
+    "max_c": 15,
+    "max_time_local": "2026-06-04 00:03:32",
+    "delta_c": 0,
+    "thermal_drop_c": 0
   },
   "wind": {
-    "max_gust_kmh": 14,
-    "max_gust_time_local": "2026-06-03 12:12:55"
+    "max_gust_kmh": 3,
+    "max_gust_time_local": "2026-06-04 00:03:32"
   },
   "pressure": {
-    "min_hpa": 992.21,
-    "min_time_local": "2026-06-03 12:12:55",
-    "max_hpa": 994.58,
-    "max_time_local": "2026-06-03 00:09:06",
+    "min_hpa": 995.26,
+    "min_time_local": "2026-06-04 00:03:32",
+    "max_hpa": 995.26,
+    "max_time_local": "2026-06-04 00:03:32",
     "trend": "STABLE"
   },
   "uv": {
-    "max_index": 7.0,
-    "max_time_local": "2026-06-03 12:17:16"
+    "max_index": 0.0,
+    "max_time_local": "2026-06-04 00:03:32"
   }
 }
