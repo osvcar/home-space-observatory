@@ -3,12 +3,12 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-06-29T01:35:08.607934+00:00",
-  "start_utc": "2026-06-28T13:34:32+00:00",
-  "end_utc": "2026-06-29T01:34:32Z",
+  "updated_utc": "2026-06-29T04:55:53.781733+00:00",
+  "start_utc": "2026-06-28T16:55:16+00:00",
+  "end_utc": "2026-06-29T04:55:16Z",
   "condensation": {
-    "spread_c": 0,
-    "state": "CRITICAL",
+    "spread_c": 1,
+    "state": "HIGH",
     "states": [
       "LOW",
       "MODERATE",
@@ -17,28 +17,28 @@
     ]
   },
   "label": "OBSERVATION_WINDOW",
-  "records": 17,
+  "records": 14,
   "temperature": {
     "min_c": 24,
     "min_time_local": "2026-06-29 03:34:32",
-    "max_c": 41,
-    "max_time_local": "2026-06-28 16:13:31",
-    "delta_c": 17,
-    "thermal_drop_c": 17
+    "max_c": 38,
+    "max_time_local": "2026-06-28 18:59:21",
+    "delta_c": 14,
+    "thermal_drop_c": 11
   },
   "wind": {
-    "max_gust_kmh": 5,
-    "max_gust_time_local": "2026-06-28 18:21:11"
+    "max_gust_kmh": 6,
+    "max_gust_time_local": "2026-06-29 06:55:16"
   },
   "pressure": {
     "min_hpa": 1001.36,
-    "min_time_local": "2026-06-28 18:21:11",
+    "min_time_local": "2026-06-28 18:59:21",
     "max_hpa": 1003.05,
     "max_time_local": "2026-06-29 00:41:06",
-    "trend": "STABLE"
+    "trend": "RISING"
   },
   "uv": {
-    "max_index": 5.0,
-    "max_time_local": "2026-06-28 16:13:31"
+    "max_index": 1.0,
+    "max_time_local": "2026-06-28 18:59:21"
   }
 }
