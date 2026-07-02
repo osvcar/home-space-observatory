@@ -2,44 +2,44 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-07-02T06:24:44.716245+00:00",
+  "updated_utc": "2026-07-02T09:38:59.232346+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 26,
+    "records": 27,
     "temperature": {
       "min_c": 16,
       "min_time_local": "2026-07-02 04:30:51",
-      "max_c": 23,
-      "max_time_local": "2026-07-01 00:44:30",
-      "delta_c": 7,
-      "thermal_drop_c": 2
+      "max_c": 26,
+      "max_time_local": "2026-07-02 11:38:36",
+      "delta_c": 10,
+      "thermal_drop_c": 0
     },
     "wind": {
-      "max_gust_kmh": 11,
-      "max_gust_time_local": "2026-07-01 20:55:26"
+      "max_gust_kmh": 13,
+      "max_gust_time_local": "2026-07-02 11:38:36"
     },
     "pressure": {
       "min_hpa": 1000.34,
       "min_time_local": "2026-07-01 10:42:29",
-      "max_hpa": 1003.73,
-      "max_time_local": "2026-07-02 08:06:51",
-      "trend": "STABLE"
+      "max_hpa": 1004.06,
+      "max_time_local": "2026-07-02 11:38:36",
+      "trend": "RISING"
     },
     "uv": {
-      "max_index": 3.0,
-      "max_time_local": "2026-07-02 08:24:17"
+      "max_index": 7.0,
+      "max_time_local": "2026-07-02 11:38:36"
     }
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 638,
+    "records": 639,
     "temperature": {
       "min_c": 7,
       "min_time_local": "2026-05-29 00:52:43",
       "max_c": 41,
       "max_time_local": "2026-06-28 16:13:31",
       "delta_c": 34,
-      "thermal_drop_c": 20
+      "thermal_drop_c": 15
     },
     "wind": {
       "max_gust_kmh": 25,
@@ -59,14 +59,14 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 570,
+    "records": 571,
     "temperature": {
       "min_c": 8,
       "min_time_local": "2026-06-12 03:37:05",
       "max_c": 41,
       "max_time_local": "2026-06-28 16:13:31",
       "delta_c": 33,
-      "thermal_drop_c": 20
+      "thermal_drop_c": 15
     },
     "wind": {
       "max_gust_kmh": 25,
