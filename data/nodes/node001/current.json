@@ -2,7 +2,7 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "station_id": "IPIOTR18",
-  "updated_utc": "2026-08-07T22:27:31.500141+00:00",
+  "updated_utc": "2026-08-07T22:27:53.600012+00:00",
   "observed_utc": "2026-08-07T22:27:00Z",
   "observed_local": "2026-08-08 00:27:00",
   "node_date_local": "2026-08-08",
