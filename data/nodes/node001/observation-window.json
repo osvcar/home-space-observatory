@@ -3,9 +3,9 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-08-17T15:46:51.755125+00:00",
-  "start_utc": "2026-08-17T03:46:20+00:00",
-  "end_utc": "2026-08-17T15:46:20Z",
+  "updated_utc": "2026-08-17T16:09:35.936139+00:00",
+  "start_utc": "2026-08-17T04:09:15+00:00",
+  "end_utc": "2026-08-17T16:09:15Z",
   "condensation": {
     "spread_c": 0,
     "state": "CRITICAL",
@@ -20,7 +20,7 @@
   "records": 34,
   "temperature": {
     "min_c": 16,
-    "min_time_local": "2026-08-17 06:06:34",
+    "min_time_local": "2026-08-17 06:24:03",
     "max_c": 26,
     "max_time_local": "2026-08-17 13:44:04",
     "delta_c": 10,
@@ -34,7 +34,7 @@
     "min_hpa": 993.57,
     "min_time_local": "2026-08-17 16:19:00",
     "max_hpa": 998.31,
-    "max_time_local": "2026-08-17 06:06:34",
+    "max_time_local": "2026-08-17 06:24:03",
     "trend": "FALLING"
   },
   "uv": {
