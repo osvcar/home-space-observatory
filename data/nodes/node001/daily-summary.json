@@ -2,9 +2,9 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "date_local": "2026-08-21",
-  "updated_utc": "2026-08-21T19:20:33.835457+00:00",
+  "updated_utc": "2026-08-21T19:33:17.826671+00:00",
   "label": "CALENDAR_DAY",
-  "records": 59,
+  "records": 60,
   "temperature": {
     "min_c": 16,
     "min_time_local": "2026-08-21 02:25:51",
@@ -18,8 +18,8 @@
     "max_gust_time_local": "2026-08-21 15:54:21"
   },
   "pressure": {
-    "min_hpa": 991.87,
-    "min_time_local": "2026-08-21 20:52:12",
+    "min_hpa": 991.53,
+    "min_time_local": "2026-08-21 21:32:32",
     "max_hpa": 996.61,
     "max_time_local": "2026-08-21 12:14:31",
     "trend": "FALLING"
