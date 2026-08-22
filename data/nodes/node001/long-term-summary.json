@@ -2,10 +2,10 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-08-22T04:09:03.842712+00:00",
+  "updated_utc": "2026-08-22T04:27:44.911861+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 1048,
+    "records": 1049,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
@@ -15,8 +15,8 @@
       "thermal_drop_c": 21
     },
     "wind": {
-      "max_gust_kmh": 19,
-      "max_gust_time_local": "2026-08-22 04:08:37"
+      "max_gust_kmh": 21,
+      "max_gust_time_local": "2026-08-22 06:27:12"
     },
     "pressure": {
       "min_hpa": 984.08,
@@ -32,7 +32,7 @@
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 2458,
+    "records": 2459,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
@@ -59,7 +59,7 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 2390,
+    "records": 2391,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
