@@ -2,15 +2,15 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "date_local": "2026-08-23",
-  "updated_utc": "2026-08-23T11:42:33.985799+00:00",
+  "updated_utc": "2026-08-23T12:10:32.697103+00:00",
   "label": "CALENDAR_DAY",
-  "records": 40,
+  "records": 41,
   "temperature": {
     "min_c": 11,
     "min_time_local": "2026-08-23 04:18:39",
-    "max_c": 19,
-    "max_time_local": "2026-08-23 12:44:50",
-    "delta_c": 8,
+    "max_c": 20,
+    "max_time_local": "2026-08-23 14:09:58",
+    "delta_c": 9,
     "thermal_drop_c": 0
   },
   "wind": {
