@@ -3,12 +3,12 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-08-23T14:46:46.459707+00:00",
-  "start_utc": "2026-08-23T02:45:58+00:00",
-  "end_utc": "2026-08-23T14:45:58Z",
+  "updated_utc": "2026-08-23T15:08:21.633051+00:00",
+  "start_utc": "2026-08-23T03:07:45+00:00",
+  "end_utc": "2026-08-23T15:07:45Z",
   "condensation": {
-    "spread_c": 1,
-    "state": "HIGH",
+    "spread_c": 0,
+    "state": "CRITICAL",
     "states": [
       "LOW",
       "MODERATE",
@@ -17,7 +17,7 @@
     ]
   },
   "label": "OBSERVATION_WINDOW",
-  "records": 39,
+  "records": 40,
   "temperature": {
     "min_c": 11,
     "min_time_local": "2026-08-23 05:11:02",
