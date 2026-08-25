@@ -3,7 +3,7 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-08-25T16:51:31.121108+00:00",
+  "updated_utc": "2026-08-25T16:52:27.783022+00:00",
   "start_utc": "2026-08-25T04:50:39+00:00",
   "end_utc": "2026-08-25T16:50:39Z",
   "condensation": {
