@@ -2,7 +2,7 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-08-26T09:07:51.012063+00:00",
+  "updated_utc": "2026-08-26T09:08:26.176775+00:00",
   "month": {
     "label": "CURRENT_MONTH",
     "records": 1345,
