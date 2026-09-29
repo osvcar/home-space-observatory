@@ -3,9 +3,9 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-09-29T19:30:45.817819+00:00",
-  "start_utc": "2026-09-29T07:29:51+00:00",
-  "end_utc": "2026-09-29T19:29:51Z",
+  "updated_utc": "2026-09-29T19:36:23.490858+00:00",
+  "start_utc": "2026-09-29T07:35:21+00:00",
+  "end_utc": "2026-09-29T19:35:21Z",
   "condensation": {
     "spread_c": 0,
     "state": "CRITICAL",
@@ -28,7 +28,7 @@
   },
   "wind": {
     "max_gust_kmh": 8,
-    "max_gust_time_local": "2026-09-29 09:30:41"
+    "max_gust_time_local": "2026-09-29 16:19:51"
   },
   "pressure": {
     "min_hpa": 1013.88,
@@ -39,6 +39,6 @@
   },
   "uv": {
     "max_index": 1.0,
-    "max_time_local": "2026-09-29 09:30:41"
+    "max_time_local": "2026-09-29 09:38:21"
   }
 }
