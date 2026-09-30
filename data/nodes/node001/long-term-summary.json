@@ -2,17 +2,17 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-09-30T02:11:46.110969+00:00",
+  "updated_utc": "2026-09-30T08:31:20.014932+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 380,
+    "records": 381,
     "temperature": {
       "min_c": 7,
       "min_time_local": "2026-09-07 05:23:54",
       "max_c": 30,
       "max_time_local": "2026-09-08 14:12:06",
       "delta_c": 23,
-      "thermal_drop_c": 19
+      "thermal_drop_c": 11
     },
     "wind": {
       "max_gust_kmh": 15,
@@ -21,8 +21,8 @@
     "pressure": {
       "min_hpa": 989.84,
       "min_time_local": "2026-09-04 20:18:55",
-      "max_hpa": 1014.56,
-      "max_time_local": "2026-09-29 21:29:51",
+      "max_hpa": 1015.24,
+      "max_time_local": "2026-09-30 10:30:12",
       "trend": "RISING"
     },
     "uv": {
@@ -32,14 +32,14 @@
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 3199,
+    "records": 3200,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
       "max_c": 41,
       "max_time_local": "2026-06-28 16:13:31",
       "delta_c": 35,
-      "thermal_drop_c": 30
+      "thermal_drop_c": 22
     },
     "wind": {
       "max_gust_kmh": 33,
@@ -48,9 +48,9 @@
     "pressure": {
       "min_hpa": 984.08,
       "min_time_local": "2026-08-22 02:43:32",
-      "max_hpa": 1014.9,
-      "max_time_local": "2026-08-13 06:18:53",
-      "trend": "STABLE"
+      "max_hpa": 1015.24,
+      "max_time_local": "2026-09-30 10:30:12",
+      "trend": "RISING"
     },
     "uv": {
       "max_index": 9.0,
@@ -59,14 +59,14 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 3131,
+    "records": 3132,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
       "max_c": 41,
       "max_time_local": "2026-06-28 16:13:31",
       "delta_c": 35,
-      "thermal_drop_c": 30
+      "thermal_drop_c": 22
     },
     "wind": {
       "max_gust_kmh": 33,
@@ -75,8 +75,8 @@
     "pressure": {
       "min_hpa": 984.08,
       "min_time_local": "2026-08-22 02:43:32",
-      "max_hpa": 1014.9,
-      "max_time_local": "2026-08-13 06:18:53",
+      "max_hpa": 1015.24,
+      "max_time_local": "2026-09-30 10:30:12",
       "trend": "RISING"
     },
     "uv": {
