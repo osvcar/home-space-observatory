@@ -2,17 +2,17 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-10-09T14:00:51.267424+00:00",
+  "updated_utc": "2026-10-12T18:03:57.130361+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 80,
+    "records": 81,
     "temperature": {
       "min_c": 8,
       "min_time_local": "2026-10-03 03:34:37",
-      "max_c": 23,
-      "max_time_local": "2026-10-02 15:51:50",
-      "delta_c": 15,
-      "thermal_drop_c": 14
+      "max_c": 70,
+      "max_time_local": "2026-10-12 20:03:14",
+      "delta_c": 62,
+      "thermal_drop_c": 0
     },
     "wind": {
       "max_gust_kmh": 16,
@@ -23,7 +23,7 @@
       "min_time_local": "2026-10-08 16:56:22",
       "max_hpa": 1017.27,
       "max_time_local": "2026-10-02 09:33:46",
-      "trend": "FALLING"
+      "trend": "STABLE"
     },
     "uv": {
       "max_index": 3.0,
@@ -32,14 +32,14 @@
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 3285,
+    "records": 3286,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
-      "max_c": 41,
-      "max_time_local": "2026-06-28 16:13:31",
-      "delta_c": 35,
-      "thermal_drop_c": 32
+      "max_c": 70,
+      "max_time_local": "2026-10-12 20:03:14",
+      "delta_c": 64,
+      "thermal_drop_c": 0
     },
     "wind": {
       "max_gust_kmh": 33,
@@ -50,7 +50,7 @@
       "min_time_local": "2026-08-22 02:43:32",
       "max_hpa": 1017.27,
       "max_time_local": "2026-10-02 09:33:46",
-      "trend": "FALLING"
+      "trend": "STABLE"
     },
     "uv": {
       "max_index": 9.0,
@@ -59,14 +59,14 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 3217,
+    "records": 3218,
     "temperature": {
       "min_c": 6,
       "min_time_local": "2026-08-12 04:38:11",
-      "max_c": 41,
-      "max_time_local": "2026-06-28 16:13:31",
-      "delta_c": 35,
-      "thermal_drop_c": 32
+      "max_c": 70,
+      "max_time_local": "2026-10-12 20:03:14",
+      "delta_c": 64,
+      "thermal_drop_c": 0
     },
     "wind": {
       "max_gust_kmh": 33,
