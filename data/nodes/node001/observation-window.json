@@ -3,9 +3,9 @@
   "name": "Atmospheric Monitoring Station",
   "window": "LAST_12_HOURS",
   "window_hours": 12,
-  "updated_utc": "2026-10-15T10:08:35.136278+00:00",
-  "start_utc": "2026-10-14T22:07:38+00:00",
-  "end_utc": "2026-10-15T10:07:38Z",
+  "updated_utc": "2026-10-15T14:57:27.016057+00:00",
+  "start_utc": "2026-10-15T02:56:40+00:00",
+  "end_utc": "2026-10-15T14:56:40Z",
   "condensation": {
     "spread_c": 79,
     "state": "LOW",
@@ -17,12 +17,12 @@
     ]
   },
   "label": "OBSERVATION_WINDOW",
-  "records": 7,
+  "records": 5,
   "temperature": {
     "min_c": 70,
-    "min_time_local": "2026-10-15 00:14:15",
+    "min_time_local": "2026-10-15 07:09:55",
     "max_c": 70,
-    "max_time_local": "2026-10-15 00:14:15",
+    "max_time_local": "2026-10-15 07:09:55",
     "delta_c": 0,
     "thermal_drop_c": 0
   },
@@ -32,13 +32,13 @@
   },
   "pressure": {
     "min_hpa": 1019.3,
-    "min_time_local": "2026-10-15 02:36:04",
+    "min_time_local": "2026-10-15 16:56:40",
     "max_hpa": 1019.98,
     "max_time_local": "2026-10-15 12:04:18",
     "trend": "STABLE"
   },
   "uv": {
     "max_index": 0.0,
-    "max_time_local": "2026-10-15 00:14:15"
+    "max_time_local": "2026-10-15 07:09:55"
   }
 }
