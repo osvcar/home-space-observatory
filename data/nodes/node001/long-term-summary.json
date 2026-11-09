@@ -2,25 +2,25 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-11-09T01:12:52.396643+00:00",
+  "updated_utc": "2026-11-09T02:06:53.262988+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 67,
+    "records": 68,
     "temperature": {
-      "min_c": -3,
-      "min_time_local": "2026-11-08 22:37:55",
+      "min_c": -5,
+      "min_time_local": "2026-11-09 03:06:41",
       "max_c": 16,
       "max_time_local": "2026-11-01 02:25:08",
-      "delta_c": 19,
-      "thermal_drop_c": 19
+      "delta_c": 21,
+      "thermal_drop_c": 21
     },
     "wind": {
       "max_gust_kmh": 13,
       "max_gust_time_local": "2026-11-07 11:48:56"
     },
     "pressure": {
-      "min_hpa": 1007.45,
-      "min_time_local": "2026-11-08 23:48:54",
+      "min_hpa": 1006.77,
+      "min_time_local": "2026-11-09 03:06:41",
       "max_hpa": 1017.27,
       "max_time_local": "2026-11-01 09:04:24",
       "trend": "FALLING"
@@ -32,14 +32,14 @@
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 3462,
+    "records": 3463,
     "temperature": {
-      "min_c": -3,
-      "min_time_local": "2026-11-08 22:37:55",
+      "min_c": -5,
+      "min_time_local": "2026-11-09 03:06:41",
       "max_c": 70,
       "max_time_local": "2026-10-12 20:03:14",
-      "delta_c": 73,
-      "thermal_drop_c": 73
+      "delta_c": 75,
+      "thermal_drop_c": 75
     },
     "wind": {
       "max_gust_kmh": 33,
@@ -59,14 +59,14 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 3394,
+    "records": 3395,
     "temperature": {
-      "min_c": -3,
-      "min_time_local": "2026-11-08 22:37:55",
+      "min_c": -5,
+      "min_time_local": "2026-11-09 03:06:41",
       "max_c": 70,
       "max_time_local": "2026-10-12 20:03:14",
-      "delta_c": 73,
-      "thermal_drop_c": 73
+      "delta_c": 75,
+      "thermal_drop_c": 75
     },
     "wind": {
       "max_gust_kmh": 33,
