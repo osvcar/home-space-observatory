@@ -2,10 +2,10 @@
   "node": "NODE 001",
   "name": "Atmospheric Monitoring Station",
   "launch_date_local": "2026-05-25",
-  "updated_utc": "2026-11-12T07:51:28.476700+00:00",
+  "updated_utc": "2026-11-12T13:00:58.807562+00:00",
   "month": {
     "label": "CURRENT_MONTH",
-    "records": 90,
+    "records": 91,
     "temperature": {
       "min_c": -5,
       "min_time_local": "2026-11-09 03:06:41",
@@ -19,8 +19,8 @@
       "max_gust_time_local": "2026-11-07 11:48:56"
     },
     "pressure": {
-      "min_hpa": 978.67,
-      "min_time_local": "2026-11-12 08:51:06",
+      "min_hpa": 977.31,
+      "min_time_local": "2026-11-12 14:00:12",
       "max_hpa": 1017.27,
       "max_time_local": "2026-11-01 09:04:24",
       "trend": "FALLING"
@@ -32,7 +32,7 @@
   },
   "year": {
     "label": "CURRENT_YEAR",
-    "records": 3485,
+    "records": 3486,
     "temperature": {
       "min_c": -5,
       "min_time_local": "2026-11-09 03:06:41",
@@ -46,8 +46,8 @@
       "max_gust_time_local": "2026-07-05 17:46:37"
     },
     "pressure": {
-      "min_hpa": 978.67,
-      "min_time_local": "2026-11-12 08:51:06",
+      "min_hpa": 977.31,
+      "min_time_local": "2026-11-12 14:00:12",
       "max_hpa": 1022.35,
       "max_time_local": "2026-10-19 10:44:40",
       "trend": "FALLING"
@@ -59,7 +59,7 @@
   },
   "since_launch": {
     "label": "SINCE_LAUNCH",
-    "records": 3417,
+    "records": 3418,
     "temperature": {
       "min_c": -5,
       "min_time_local": "2026-11-09 03:06:41",
@@ -73,8 +73,8 @@
       "max_gust_time_local": "2026-07-05 17:46:37"
     },
     "pressure": {
-      "min_hpa": 978.67,
-      "min_time_local": "2026-11-12 08:51:06",
+      "min_hpa": 977.31,
+      "min_time_local": "2026-11-12 14:00:12",
       "max_hpa": 1022.35,
       "max_time_local": "2026-10-19 10:44:40",
       "trend": "FALLING"
